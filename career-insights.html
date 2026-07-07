@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Career Insights</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html" class="active">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Career Insights</div>
+    <div class="page-sub">Market data and skill recommendations to guide your career.</div>
+
+    <!-- Salary insights -->
+    <div class="section-heading">Salary Insights &mdash; Senior Data Scientist</div>
+    <div class="card">
+      <p style="font-size:13px;color:#666;margin-bottom:12px;">Based on market data for your role and location (San Francisco, CA)</p>
+      <div class="stats-row" style="margin-bottom:0;">
+        <div class="stat-box">
+          <div class="num" style="font-size:20px;">$120K</div>
+          <div class="label">25th Percentile</div>
+        </div>
+        <div class="stat-box" style="border:2px solid #2a6dbf;">
+          <div class="num" style="font-size:20px;">$160K</div>
+          <div class="label">Median (Your Target)</div>
+        </div>
+        <div class="stat-box">
+          <div class="num" style="font-size:20px;">$210K</div>
+          <div class="label">75th Percentile</div>
+        </div>
+        <div class="stat-box">
+          <div class="num" style="font-size:20px;">$280K</div>
+          <div class="label">Top 10%</div>
+        </div>
+      </div>
+      <div class="alert alert-info" style="margin-top:12px;">
+        Your expected salary ($150K - $200K) is <strong>within the market range</strong> for this role.
+      </div>
+    </div>
+
+    <!-- Salary by location -->
+    <div class="section-heading">Salary by Location</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>Location</th><th>Median Salary</th><th>Range</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>San Francisco, CA</td><td>$162,000</td><td>$120K - $220K</td></tr>
+          <tr><td>New York, NY</td><td>$155,000</td><td>$115K - $210K</td></tr>
+          <tr><td>Seattle, WA</td><td>$158,000</td><td>$118K - $215K</td></tr>
+          <tr><td>Austin, TX</td><td>$140,000</td><td>$105K - $195K</td></tr>
+          <tr><td>Remote</td><td>$145,000</td><td>$110K - $200K</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Skill gaps -->
+    <div class="section-heading">Your Skill Gaps</div>
+    <div class="card">
+      <p style="font-size:13px;color:#666;margin-bottom:10px;">
+        Based on top job postings, these skills are frequently required but missing from your profile:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Skill</th><th>How Often Required</th><th>Learn Time</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-missing">Kubernetes</span></td>
+            <td>62% of roles</td>
+            <td>2-4 weeks</td>
+            <td><a href="#" class="btn btn-secondary btn-small">Find Resources</a></td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-missing">dbt (data build tool)</span></td>
+            <td>45% of roles</td>
+            <td>1-2 weeks</td>
+            <td><a href="#" class="btn btn-secondary btn-small">Find Resources</a></td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-missing">MLflow</span></td>
+            <td>38% of roles</td>
+            <td>1 week</td>
+            <td><a href="#" class="btn btn-secondary btn-small">Find Resources</a></td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-missing">LLM / Generative AI</span></td>
+            <td>55% of roles</td>
+            <td>3-6 weeks</td>
+            <td><a href="#" class="btn btn-secondary btn-small">Find Resources</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Market trends -->
+    <div class="section-heading">Market Trends</div>
+    <div class="card">
+      <p style="font-size:13px;color:#555;margin-bottom:10px;">Current job market for Data Science roles (July 2026):</p>
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Total open positions</td><td>12,450 in your target locations</td></tr>
+          <tr><td>New postings this week</td><td>+842 (up 8% vs last week)</td></tr>
+          <tr><td>Average time to hire</td><td>32 days</td></tr>
+          <tr><td>Most hiring companies</td><td>AI startups, Fintech, Healthcare tech</td></tr>
+          <tr><td>Top required skills</td><td>Python, SQL, ML, LLMs, Cloud</td></tr>
+          <tr><td>Remote jobs available</td><td>34% of all listings</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Career path -->
+    <div class="section-heading">Career Path Suggestions</div>
+    <div class="card">
+      <p style="font-size:13px;color:#555;margin-bottom:10px;">
+        Based on your experience as a Senior Data Scientist, here are common next career steps:
+      </p>
+      <ul style="font-size:14px;padding-left:20px;color:#444;">
+        <li style="margin-bottom:6px;"><strong>Staff Data Scientist</strong> &mdash; Individual contributor, deeper technical expertise</li>
+        <li style="margin-bottom:6px;"><strong>ML Engineering Lead</strong> &mdash; Blend of ML and engineering systems</li>
+        <li style="margin-bottom:6px;"><strong>Data Science Manager</strong> &mdash; Lead a team, more strategy &amp; planning</li>
+        <li><strong>Head of AI/ML</strong> &mdash; Director-level, organization-wide ML strategy</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

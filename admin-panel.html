@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-sidebar { background: #2c3e50; }
+    .admin-sidebar-logo { color: #f39c12; }
+    .admin-stats-row { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:20px; }
+    .admin-stat-box { background: #fff; border: 1px solid #ccc; border-radius: 4px; padding: 14px 20px; flex:1; min-width: 150px; border-left: 4px solid #3498db; }
+  </style>
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Admin Sidebar -->
+  <nav class="sidebar admin-sidebar">
+    <div class="sidebar-logo admin-sidebar-logo">JOBFITS ADMIN</div>
+    
+    <div class="sidebar-section-label">System</div>
+    <a href="admin-panel.html" class="active">Dashboard</a>
+    <a href="#">System Health</a>
+    
+    <div class="sidebar-section-label">Management</div>
+    <a href="#">Users</a>
+    <a href="#">Jobs</a>
+    <a href="#">Companies</a>
+    
+    <div class="sidebar-section-label">Content Moderation</div>
+    <a href="#">Reported Jobs</a>
+    <a href="#">Spam Filters</a>
+
+    <div class="sidebar-user">
+      <strong>Admin User</strong>
+      admin@jobfits.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Admin Dashboard</div>
+    <div class="page-sub">Overview of system metrics and recent activity.</div>
+
+    <!-- Admin Stats -->
+    <div class="admin-stats-row">
+      <div class="admin-stat-box">
+        <div class="num" style="color:#2c3e50;">12,450</div>
+        <div class="label">Total Users</div>
+      </div>
+      <div class="admin-stat-box">
+        <div class="num" style="color:#2c3e50;">8,230</div>
+        <div class="label">Active Jobs</div>
+      </div>
+      <div class="admin-stat-box">
+        <div class="num" style="color:#2c3e50;">45,120</div>
+        <div class="label">Applications</div>
+      </div>
+      <div class="admin-stat-box" style="border-left-color:#e74c3c;">
+        <div class="num" style="color:#c0392b;">12</div>
+        <div class="label">Reported Jobs</div>
+      </div>
+    </div>
+
+    <!-- System Health -->
+    <div class="section-heading">System Health</div>
+    <div class="card">
+      <table style="width:100%; border:none;">
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:10px 0; border:none;"><strong>API Status</strong></td>
+          <td style="padding:10px 0; border:none; text-align:right;"><span class="status status-offer">Operational</span></td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:10px 0; border:none;"><strong>Database Load</strong></td>
+          <td style="padding:10px 0; border:none; text-align:right;">34%</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:10px 0; border:none;"><strong>Nightly Batch Job</strong></td>
+          <td style="padding:10px 0; border:none; text-align:right;">Completed successfully (2h 14m ago)</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 0; border:none;"><strong>Recommendation Queue</strong></td>
+          <td style="padding:10px 0; border:none; text-align:right;">0 pending</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Recent Reported Jobs -->
+    <div class="section-heading">Pending Moderation</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Job ID</th>
+            <th>Company</th>
+            <th>Reason</th>
+            <th>Date Reported</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#98234</td>
+            <td>ScamCorp Inc.</td>
+            <td>Suspected spam / Fake posting</td>
+            <td>Today, 10:45 AM</td>
+            <td>
+              <button class="btn btn-danger btn-small" onclick="alert('Job removed')">Remove</button>
+              <button class="btn btn-secondary btn-small" onclick="alert('Job marked as safe')">Ignore</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#98112</td>
+            <td>Unknown LLC</td>
+            <td>Inaccurate salary data</td>
+            <td>Yesterday, 2:30 PM</td>
+            <td>
+              <button class="btn btn-danger btn-small" onclick="alert('Job removed')">Remove</button>
+              <button class="btn btn-secondary btn-small" onclick="alert('Job marked as safe')">Ignore</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section-heading">Admin Actions</div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="alert('Batch recommendation job triggered manually.')">Trigger Recommendation Batch</button>
+      <button class="btn btn-secondary" onclick="alert('Cache cleared.')">Clear Cache</button>
+      <button class="btn btn-secondary" onclick="alert('Database backup initiated.')">Backup Database</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

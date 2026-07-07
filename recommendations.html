@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Recommendations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html" class="active">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Your Personalized Matches</div>
+    <div class="page-sub">
+      Generated 2 hours ago &nbsp;&bull;&nbsp; Updated nightly at 11 PM PT
+      &nbsp;&nbsp;
+      <button class="btn btn-secondary btn-small" onclick="alert('Refresh triggered (connect to backend)')">Refresh</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="card" style="padding:14px;">
+      <strong style="font-size:13px;">Filters &amp; Sort</strong>
+      <div class="filter-row" style="margin-top:10px;">
+        <label>Min Match %:</label>
+        <select>
+          <option>Any</option>
+          <option>60%+</option>
+          <option>70%+</option>
+          <option selected>80%+</option>
+          <option>90%+</option>
+        </select>
+
+        <label>Location:</label>
+        <input type="text" placeholder="City or Remote" style="padding:5px 8px;border:1px solid #bbb;border-radius:3px;font-size:13px;width:140px;">
+
+        <label>Salary:</label>
+        <select>
+          <option>Any</option>
+          <option>$100K+</option>
+          <option>$150K+</option>
+          <option>$200K+</option>
+        </select>
+
+        <label>Sort:</label>
+        <select>
+          <option>Relevance</option>
+          <option>Match Score (high-low)</option>
+          <option>Newest first</option>
+          <option>Salary (highest)</option>
+        </select>
+
+        <button class="btn btn-secondary btn-small">Clear</button>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:#666;margin-bottom:12px;">
+      <strong>20 recommendations</strong> matched &nbsp;&bull;&nbsp; Filters: Match &gt;80%
+    </p>
+
+    <!-- Recommendation cards -->
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Senior Data Scientist</a></h3>
+      <div class="meta">TechCorp &nbsp;|&nbsp; San Francisco, CA &nbsp;|&nbsp; $150K - $190K &nbsp;|&nbsp; Full-time</div>
+      <span class="match-score match-high">92% Match</span>
+      <p class="note" style="margin-top:4px;">Skills 95% &bull; Experience 88% &bull; Location 95%</p>
+      <p style="font-size:13px;color:#555;margin-top:4px;">8 of 10 required skills match your profile.</p>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Saved!')">&#9829; Save</button>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Dismissed. Reason recorded.')">Dismiss</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Machine Learning Engineer</a></h3>
+      <div class="meta">AI Labs &nbsp;|&nbsp; Remote &nbsp;|&nbsp; $140K - $180K &nbsp;|&nbsp; Full-time</div>
+      <span class="match-score match-high">88% Match</span>
+      <p class="note" style="margin-top:4px;">Skills 90% &bull; Experience 85% &bull; Location 100%</p>
+      <p style="font-size:13px;color:#555;margin-top:4px;">7 of 9 required skills match your profile.</p>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Saved!')">&#9829; Save</button>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Dismissed.')">Dismiss</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Data Engineer - Platform Team</a></h3>
+      <div class="meta">FinTech Inc &nbsp;|&nbsp; New York, NY &nbsp;|&nbsp; $130K - $160K &nbsp;|&nbsp; Hybrid</div>
+      <span class="match-score match-high">83% Match</span>
+      <p class="note" style="margin-top:4px;">Skills 80% &bull; Experience 90% &bull; Location 80%</p>
+      <p style="font-size:13px;color:#555;margin-top:4px;">6 of 8 required skills match your profile.</p>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Saved!')">&#9829; Save</button>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Dismissed.')">Dismiss</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Applied Scientist</a></h3>
+      <div class="meta">BigTech &nbsp;|&nbsp; Seattle, WA &nbsp;|&nbsp; $160K - $200K &nbsp;|&nbsp; Full-time</div>
+      <span class="match-score match-high">81% Match</span>
+      <p class="note" style="margin-top:4px;">Skills 85% &bull; Experience 80% &bull; Location 75%</p>
+      <p style="font-size:13px;color:#555;margin-top:4px;">7 of 10 required skills match your profile.</p>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Saved!')">&#9829; Save</button>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+        <button class="btn btn-secondary btn-small" onclick="alert('Dismissed.')">Dismiss</button>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <span>Previous</span>
+      <a href="#" class="current">1</a>
+      <a href="#">2</a>
+      <a href="#">Next</a>
+    </div>
+    <p style="text-align:center;font-size:12px;color:#888;margin-top:8px;">Showing 1-4 of 20 recommendations</p>
+  </div>
+</div>
+
+</body>
+</html>

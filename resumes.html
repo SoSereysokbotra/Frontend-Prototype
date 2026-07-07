@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Resumes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html" class="active">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Resumes</div>
+    <div class="page-sub">Manage your resume versions. You can have multiple resumes for different roles.</div>
+
+    <!-- Upload new resume -->
+    <div class="section-heading">Upload New Resume</div>
+    <div class="card">
+      <div class="upload-zone" onclick="document.getElementById('newResume').click()">
+        <p>Drag a resume here or click to browse</p>
+        <p class="note">Accepted: PDF, DOCX, DOC (Max 10MB)</p>
+        <input type="file" id="newResume" accept=".pdf,.doc,.docx" style="display:none;">
+      </div>
+      <div class="form-group">
+        <label for="resumeName">Label for this resume (optional)</label>
+        <input type="text" id="resumeName" placeholder="e.g. ML-focused, General, Management">
+      </div>
+      <button class="btn btn-primary btn-small" onclick="alert('Resume uploaded! (connect to backend)')">Upload Resume</button>
+    </div>
+
+    <!-- Existing resumes -->
+    <div class="section-heading">Your Resumes</div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+        <div>
+          <h3>Resume_v3.pdf</h3>
+          <div class="meta">Label: General &nbsp;|&nbsp; Uploaded: Jul 5, 2026 &nbsp;|&nbsp; 2.3 MB</div>
+          <div style="margin-top:4px;">
+            <span style="background:#eafaf1;border:1px solid #82e0aa;color:#1e8449;border-radius:3px;padding:2px 9px;font-size:12px;">
+              Default (used in quick apply)
+            </span>
+          </div>
+          <div style="margin-top:6px;font-size:13px;color:#555;">
+            Skills parsed: Python, SQL, AWS, TensorFlow, Pandas (12 total)
+          </div>
+        </div>
+        <div class="actions" style="margin-top:0;">
+          <button class="btn btn-secondary btn-small" onclick="alert('Download started.')">Download</button>
+          <button class="btn btn-secondary btn-small" onclick="alert('This is already the default.')">Set as Default</button>
+          <button class="btn btn-danger btn-small" onclick="alert('Resume deleted.')">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+        <div>
+          <h3>Resume_ML_Focus.pdf</h3>
+          <div class="meta">Label: ML-Focused &nbsp;|&nbsp; Uploaded: Jul 3, 2026 &nbsp;|&nbsp; 1.9 MB</div>
+          <div style="margin-top:6px;font-size:13px;color:#555;">
+            Skills parsed: Python, PyTorch, TensorFlow, Kubernetes, MLflow (10 total)
+          </div>
+        </div>
+        <div class="actions" style="margin-top:0;">
+          <button class="btn btn-secondary btn-small" onclick="alert('Download started.')">Download</button>
+          <button class="btn btn-secondary btn-small" onclick="alert('Set as default resume.')">Set as Default</button>
+          <button class="btn btn-danger btn-small" onclick="alert('Resume deleted.')">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume tips -->
+    <div class="section-heading">Resume Tips</div>
+    <div class="card">
+      <ul style="font-size:14px;padding-left:20px;color:#444;">
+        <li style="margin-bottom:6px;">Keep your resume to 1-2 pages.</li>
+        <li style="margin-bottom:6px;">Use clear section headings: Summary, Experience, Skills, Education.</li>
+        <li style="margin-bottom:6px;">Quantify achievements (e.g., "Improved model accuracy by 15%").</li>
+        <li style="margin-bottom:6px;">Tailor your resume for each role using our resume optimizer.</li>
+        <li>Use PDF format to preserve formatting.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

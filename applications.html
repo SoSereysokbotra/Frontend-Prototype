@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Applications</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html" class="active">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">My Applications</div>
+    <div class="page-sub">Track all your job applications in one place.</div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box"><div class="num">4</div><div class="label">Total Applied</div></div>
+      <div class="stat-box"><div class="num">2</div><div class="label">In Progress</div></div>
+      <div class="stat-box"><div class="num">1</div><div class="label">Interview</div></div>
+      <div class="stat-box"><div class="num">1</div><div class="label">Rejected</div></div>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-row" style="margin-bottom:14px;">
+      <label>Filter by status:</label>
+      <select>
+        <option>All</option>
+        <option>Applied</option>
+        <option>Under Review</option>
+        <option>Interview</option>
+        <option>Offer</option>
+        <option>Rejected</option>
+      </select>
+      <label>Sort:</label>
+      <select>
+        <option>Date applied (newest)</option>
+        <option>Status</option>
+        <option>Company</option>
+      </select>
+    </div>
+
+    <!-- Applications table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Applied Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Machine Learning Engineer</a></td>
+          <td>AI Labs</td>
+          <td>Remote</td>
+          <td>Jul 5, 2026</td>
+          <td><span class="status status-interview">Interview</span></td>
+          <td>
+            <a href="interview-prep.html" class="btn btn-secondary btn-small">Prep</a>
+            <a href="job-detail.html" class="btn btn-secondary btn-small">View</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Applied Scientist</a></td>
+          <td>BigTech</td>
+          <td>Seattle, WA</td>
+          <td>Jul 4, 2026</td>
+          <td><span class="status status-applied">Under Review</span></td>
+          <td>
+            <a href="job-detail.html" class="btn btn-secondary btn-small">View</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Senior Data Scientist</a></td>
+          <td>TechCorp</td>
+          <td>San Francisco, CA</td>
+          <td>Jul 2, 2026</td>
+          <td><span class="status status-applied">Applied</span></td>
+          <td>
+            <a href="job-detail.html" class="btn btn-secondary btn-small">View</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Data Engineer</a></td>
+          <td>StartupXYZ</td>
+          <td>Remote</td>
+          <td>Jun 28, 2026</td>
+          <td><span class="status status-rejected">Rejected</span></td>
+          <td>
+            <a href="job-detail.html" class="btn btn-secondary btn-small">View</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Application pipeline visual (simple) -->
+    <div class="section-heading" style="margin-top:24px;">Application Pipeline</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+      <div style="flex:1;min-width:100px;text-align:center;padding:12px;background:#fff;border:1px solid #ccc;border-radius:4px;">
+        <div style="font-size:20px;font-weight:bold;color:#2a6dbf;">3</div>
+        <div style="font-size:12px;color:#666;">Applied</div>
+      </div>
+      <div style="padding:12px 0;color:#aaa;font-size:20px;">&rarr;</div>
+      <div style="flex:1;min-width:100px;text-align:center;padding:12px;background:#fff;border:1px solid #ccc;border-radius:4px;">
+        <div style="font-size:20px;font-weight:bold;color:#d68910;">1</div>
+        <div style="font-size:12px;color:#666;">Interview</div>
+      </div>
+      <div style="padding:12px 0;color:#aaa;font-size:20px;">&rarr;</div>
+      <div style="flex:1;min-width:100px;text-align:center;padding:12px;background:#fff;border:1px solid #ccc;border-radius:4px;">
+        <div style="font-size:20px;font-weight:bold;color:#27ae60;">0</div>
+        <div style="font-size:12px;color:#666;">Offer</div>
+      </div>
+      <div style="padding:12px 0;color:#aaa;font-size:20px;">&rarr;</div>
+      <div style="flex:1;min-width:100px;text-align:center;padding:12px;background:#fff;border:1px solid #ccc;border-radius:4px;">
+        <div style="font-size:20px;font-weight:bold;color:#c0392b;">1</div>
+        <div style="font-size:12px;color:#666;">Rejected</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

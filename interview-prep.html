@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Interview Prep</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html" class="active">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Interview Prep</div>
+    <div class="page-sub">Prepare for your upcoming interviews.</div>
+
+    <!-- Upcoming interviews -->
+    <div class="section-heading">Upcoming Interviews</div>
+
+    <div class="card">
+      <h3>Machine Learning Engineer &mdash; AI Labs</h3>
+      <div class="meta">Interview scheduled: Jul 10, 2026 &nbsp;|&nbsp; 2:00 PM PST &nbsp;|&nbsp; Video Call (Zoom)</div>
+      <div style="margin-top:8px;">
+        <span class="status status-interview">Scheduled</span>
+      </div>
+      <div class="actions" style="margin-top:10px;">
+        <button class="btn btn-primary btn-small" onclick="alert('Opening prep materials...')">Prepare for This Interview</button>
+        <button class="btn btn-secondary btn-small" onclick="alert('Notes saved.')">Add Notes</button>
+        <button class="btn btn-secondary btn-small" onclick="alert('Reminder set.')">Set Reminder</button>
+      </div>
+    </div>
+
+    <!-- Interview prep questions -->
+    <div class="section-heading">Common Interview Questions</div>
+    <div class="alert alert-info">
+      These are common questions for Machine Learning Engineer roles. Practice your answers!
+    </div>
+
+    <div class="card">
+      <h3>Behavioral Questions</h3>
+      <ul style="font-size:14px;color:#444;padding-left:20px;margin-top:8px;">
+        <li style="margin-bottom:8px;">Tell me about a time you worked on a challenging ML project. What was the outcome?</li>
+        <li style="margin-bottom:8px;">Describe how you handle ambiguous requirements in a data project.</li>
+        <li style="margin-bottom:8px;">How do you prioritize tasks when working on multiple ML experiments?</li>
+        <li style="margin-bottom:8px;">Give an example of how you explained a complex model to a non-technical stakeholder.</li>
+        <li>Tell me about a model that failed in production. What did you learn?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Technical Questions</h3>
+      <ul style="font-size:14px;color:#444;padding-left:20px;margin-top:8px;">
+        <li style="margin-bottom:8px;">Explain the difference between overfitting and underfitting. How do you handle each?</li>
+        <li style="margin-bottom:8px;">What is the bias-variance tradeoff?</li>
+        <li style="margin-bottom:8px;">How do you choose between different ML models for a classification task?</li>
+        <li style="margin-bottom:8px;">Walk me through how you would build a recommendation system.</li>
+        <li>How do you handle class imbalance in a dataset?</li>
+      </ul>
+    </div>
+
+    <!-- Notes area -->
+    <div class="card">
+      <h3>My Interview Notes</h3>
+      <div class="form-group" style="margin-top:10px;">
+        <label>Notes for: Machine Learning Engineer &mdash; AI Labs</label>
+        <textarea placeholder="Write your prep notes, key points to mention, questions to ask..."></textarea>
+      </div>
+      <button class="btn btn-secondary btn-small" onclick="alert('Notes saved!')">Save Notes</button>
+    </div>
+
+    <!-- Resources -->
+    <div class="section-heading">Prep Resources</div>
+    <div class="card">
+      <ul style="font-size:14px;padding-left:20px;margin-top:4px;">
+        <li><a href="#" style="color:#2a6dbf;">Common ML interview questions (100 Q&amp;A)</a></li>
+        <li><a href="#" style="color:#2a6dbf;">System design for ML engineers</a></li>
+        <li><a href="#" style="color:#2a6dbf;">Coding practice: Python &amp; algorithms</a></li>
+        <li><a href="#" style="color:#2a6dbf;">Salary negotiation tips</a></li>
+        <li><a href="#" style="color:#2a6dbf;">Questions to ask your interviewer</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

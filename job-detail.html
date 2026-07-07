@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Job Detail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="breadcrumb">
+      <a href="recommendations.html">Recommendations</a> &rsaquo; Job Detail
+    </div>
+
+    <!-- Job header -->
+    <div class="card">
+      <h2 style="font-size:20px;margin-bottom:4px;">Senior Data Scientist</h2>
+      <div class="meta" style="font-size:14px;">
+        TechCorp &nbsp;&bull;&nbsp; San Francisco, CA &nbsp;&bull;&nbsp; $150K - $190K &nbsp;&bull;&nbsp; Full-time, Hybrid &nbsp;&bull;&nbsp; Posted 3 days ago
+      </div>
+      <div class="actions" style="margin-top:12px;">
+        <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        <button class="btn btn-secondary" onclick="alert('Saved!')">&#9829; Save</button>
+        <button class="btn btn-secondary" onclick="alert('Link copied!')">Share</button>
+        <button class="btn btn-secondary btn-small" onclick="alert('Report submitted.')">Report Issue</button>
+      </div>
+    </div>
+
+    <!-- Match score -->
+    <div class="card">
+      <h3>Match Score: <span style="color:#27ae60;">92%</span></h3>
+      <table style="margin-top:10px;border:none;background:none;">
+        <tr>
+          <td style="border:none;padding:4px 8px 4px 0;font-size:13px;width:140px;">Skills Match</td>
+          <td style="border:none;padding:4px 0;">
+            <div class="progress-bar-wrap" style="width:200px;">
+              <div class="progress-bar-fill" style="width:95%;background:#27ae60;"></div>
+            </div>
+          </td>
+          <td style="border:none;padding:4px 8px;font-size:13px;">95%</td>
+        </tr>
+        <tr>
+          <td style="border:none;padding:4px 8px 4px 0;font-size:13px;">Experience</td>
+          <td style="border:none;padding:4px 0;">
+            <div class="progress-bar-wrap" style="width:200px;">
+              <div class="progress-bar-fill" style="width:88%;background:#27ae60;"></div>
+            </div>
+          </td>
+          <td style="border:none;padding:4px 8px;font-size:13px;">88%</td>
+        </tr>
+        <tr>
+          <td style="border:none;padding:4px 8px 4px 0;font-size:13px;">Location</td>
+          <td style="border:none;padding:4px 0;">
+            <div class="progress-bar-wrap" style="width:200px;">
+              <div class="progress-bar-fill" style="width:95%;background:#27ae60;"></div>
+            </div>
+          </td>
+          <td style="border:none;padding:4px 8px;font-size:13px;">95%</td>
+        </tr>
+        <tr>
+          <td style="border:none;padding:4px 8px 4px 0;font-size:13px;">Seniority</td>
+          <td style="border:none;padding:4px 0;">
+            <div class="progress-bar-wrap" style="width:200px;">
+              <div class="progress-bar-fill" style="width:90%;background:#27ae60;"></div>
+            </div>
+          </td>
+          <td style="border:none;padding:4px 8px;font-size:13px;">90%</td>
+        </tr>
+      </table>
+      <p style="font-size:13px;margin-top:10px;color:#555;">
+        You're an excellent match! Your skills in Python, SQL, and AWS align well with this role.<br>
+        <span style="color:#d68910;">Skill gap: Kubernetes</span> &mdash; learnable in 2-4 weeks.
+      </p>
+      <button class="btn btn-secondary btn-small" style="margin-top:8px;" onclick="alert('Resume optimization started (connect to backend)')">
+        Optimize Resume for This Job
+      </button>
+    </div>
+
+    <!-- Skills -->
+    <div class="card">
+      <h3>Required Skills</h3>
+      <div style="margin-top:8px;">
+        <span class="tag tag-match">&#10003; Python (5 yrs)</span>
+        <span class="tag tag-match">&#10003; Machine Learning</span>
+        <span class="tag tag-match">&#10003; SQL (4 yrs)</span>
+        <span class="tag tag-missing">&#9888; Kubernetes (gap)</span>
+        <span class="tag tag-match">&#10003; AWS (3 yrs)</span>
+        <span class="tag tag-match">&#10003; TensorFlow</span>
+        <span class="tag tag-match">&#10003; Data Pipelines</span>
+        <span class="tag tag-missing">&#9888; Spark (gap)</span>
+      </div>
+    </div>
+
+    <!-- Job description -->
+    <div class="card">
+      <h3>Job Summary</h3>
+      <p style="font-size:14px;color:#444;margin-top:6px;">
+        TechCorp is looking for a Senior Data Scientist to lead ML initiatives, build production pipelines, and collaborate cross-functionally. You will design experiments, analyze large datasets, and deliver actionable insights.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Responsibilities</h3>
+      <ul style="font-size:14px;color:#444;margin-top:6px;padding-left:20px;">
+        <li>Design and deploy machine learning models into production</li>
+        <li>Build data pipelines using Python and Apache Spark</li>
+        <li>Collaborate with engineering teams to integrate ML solutions</li>
+        <li>Conduct A/B experiments and interpret results</li>
+        <li>Mentor junior data scientists</li>
+        <li>Communicate findings to stakeholders</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Benefits &amp; Compensation</h3>
+      <table>
+        <tr><th>Item</th><th>Details</th></tr>
+        <tr><td>Base Salary</td><td>$150,000 - $190,000</td></tr>
+        <tr><td>Bonus</td><td>15-20% annual</td></tr>
+        <tr><td>Equity</td><td>0.1% - 0.5% stock options</td></tr>
+        <tr><td>Health Insurance</td><td>Fully covered</td></tr>
+        <tr><td>401(k) Match</td><td>4%</td></tr>
+        <tr><td>PTO</td><td>20 days/year</td></tr>
+        <tr><td>Work Style</td><td>Hybrid (3 days on-site)</td></tr>
+        <tr><td>Learning Budget</td><td>$5,000/year</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>About TechCorp</h3>
+      <p style="font-size:14px;color:#444;margin-top:6px;">
+        TechCorp is a Series B AI company ($50M raised) with 500-1000 employees, headquartered in San Francisco.
+        They focus on enterprise AI products.
+      </p>
+      <p style="font-size:13px;margin-top:6px;">
+        Glassdoor: &#9733;&#9733;&#9733;&#9733;&#9734; 4.2/5 (234 reviews) &nbsp;|&nbsp;
+        <a href="#" style="color:#2a6dbf;">Company website</a> &nbsp;|&nbsp;
+        <a href="#" style="color:#2a6dbf;">LinkedIn</a>
+      </p>
+    </div>
+
+    <!-- Similar jobs -->
+    <div class="section-heading">Similar Jobs</div>
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Data Scientist II &mdash; StartupXYZ</a></h3>
+      <div class="meta">Remote &nbsp;|&nbsp; $120K-$160K</div>
+      <span class="match-score match-high">85% Match</span>
+      <div class="actions" style="margin-top:8px;">
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">ML Engineer &mdash; AI Labs</a></h3>
+      <div class="meta">Remote &nbsp;|&nbsp; $140K-$180K</div>
+      <span class="match-score match-high">88% Match</span>
+      <div class="actions" style="margin-top:8px;">
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View</a>
+      </div>
+    </div>
+
+    <!-- Bottom action bar -->
+    <div style="position:sticky;bottom:0;background:#f0f0f0;border-top:1px solid #ccc;padding:12px 0;display:flex;gap:10px;margin-top:20px;">
+      <a href="apply.html" class="btn btn-primary">Apply Now</a>
+      <button class="btn btn-secondary" onclick="alert('Saved!')">&#9829; Save</button>
+      <button class="btn btn-secondary" onclick="alert('Link copied!')">Share</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

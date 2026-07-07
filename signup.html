@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-box">
+    <h1>JobFits</h1>
+    <p class="sub">Create your account</p>
+
+    <!-- OAuth buttons -->
+    <div class="oauth-row">
+      <button class="oauth-btn">Sign up with Google</button>
+      <button class="oauth-btn">Sign up with LinkedIn</button>
+    </div>
+    <div class="divider">or sign up with email</div>
+
+    <!-- Signup form -->
+    <form action="verify-email.html" method="get">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Min. 8 characters" required>
+      <div class="hint">Must include uppercase, lowercase, number, special character.</div>
+
+      <label for="confirm-password">Confirm password</label>
+      <input type="password" id="confirm-password" name="confirm_password" placeholder="Repeat password" required>
+
+      <!-- Example: password mismatch error -->
+      <!-- <div class="error-msg">Passwords do not match.</div> -->
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms" style="margin:0;font-weight:normal;">
+          I agree to the <a href="#">Terms of Service</a>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </form>
+
+    <div class="link-row">
+      Already have an account? <a href="login.html">Log in</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

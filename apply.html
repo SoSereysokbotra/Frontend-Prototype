@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Apply for Job</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html" class="active">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="breadcrumb">
+      <a href="job-detail.html">Senior Data Scientist &mdash; TechCorp</a> &rsaquo; Apply
+    </div>
+
+    <div class="page-title">Apply for This Job</div>
+    <div class="page-sub">Senior Data Scientist &mdash; TechCorp &nbsp;|&nbsp; San Francisco, CA &nbsp;|&nbsp; $150K - $190K</div>
+
+    <form action="applications.html" method="get">
+
+      <!-- Resume selection -->
+      <div class="card">
+        <h3>Select Resume</h3>
+        <div class="form-group" style="margin-top:10px;">
+          <label>Choose a resume to submit</label>
+          <select>
+            <option>Resume_v3.pdf (uploaded 2 hours ago) - Default</option>
+            <option>Resume_ML_Focus.pdf (uploaded yesterday)</option>
+            <option>Upload a new resume...</option>
+          </select>
+        </div>
+        <a href="resumes.html" class="btn btn-secondary btn-small">Manage Resumes</a>
+      </div>
+
+      <!-- Personal info -->
+      <div class="card">
+        <h3>Personal Information</h3>
+        <p class="note" style="margin-bottom:12px;">Pre-filled from your profile. You can edit before submitting.</p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <div class="form-group" style="flex:1;min-width:160px;">
+            <label for="fname">First name *</label>
+            <input type="text" id="fname" value="John">
+          </div>
+          <div class="form-group" style="flex:1;min-width:160px;">
+            <label for="lname">Last name *</label>
+            <input type="text" id="lname" value="Doe">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="app-email">Email *</label>
+          <input type="email" id="app-email" value="john@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input type="text" id="phone" placeholder="+1 (555) 000-0000">
+        </div>
+
+        <div class="form-group">
+          <label for="linkedin">LinkedIn URL</label>
+          <input type="text" id="linkedin" placeholder="https://linkedin.com/in/yourname">
+        </div>
+
+        <div class="form-group">
+          <label for="portfolio">Portfolio / GitHub URL</label>
+          <input type="text" id="portfolio" placeholder="https://github.com/yourname">
+        </div>
+      </div>
+
+      <!-- Cover letter -->
+      <div class="card">
+        <h3>Cover Letter <span style="font-weight:normal;font-size:13px;color:#888;">(optional)</span></h3>
+        <div class="form-group" style="margin-top:10px;">
+          <textarea id="cover-letter" placeholder="Write a brief cover letter (optional)..."></textarea>
+        </div>
+        <div class="hint">Max 1,000 characters.</div>
+      </div>
+
+      <!-- Screening questions -->
+      <div class="card">
+        <h3>Screening Questions</h3>
+        <p class="note" style="margin-bottom:12px;">Required by the employer.</p>
+
+        <div class="form-group">
+          <label>Are you authorized to work in the United States? *</label>
+          <select>
+            <option>-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>How many years of Python experience do you have? *</label>
+          <select>
+            <option>-- Select --</option>
+            <option>Less than 1 year</option>
+            <option>1-2 years</option>
+            <option>3-5 years</option>
+            <option selected>5+ years</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Are you open to relocation to San Francisco? *</label>
+          <select>
+            <option>-- Select --</option>
+            <option selected>Already in SF</option>
+            <option>Yes, open to relocate</option>
+            <option>No</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <a href="job-detail.html" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary" style="flex:1;">Submit Application</button>
+      </div>
+      <p class="note" style="margin-top:8px;">
+        By submitting, you agree to share your resume and information with TechCorp.
+      </p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

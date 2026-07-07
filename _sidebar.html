@@ -1,0 +1,46 @@
+<!-- sidebar.html - shared sidebar snippet (copy-paste into each page) -->
+<!--
+  NOTE: HTML does not support includes natively.
+  Copy this sidebar block into every page that uses the app layout.
+  Or use JavaScript fetch() to load it dynamically.
+-->
+
+<nav class="sidebar">
+  <div class="sidebar-logo">JOBFITS</div>
+
+  <!-- Home -->
+  <div class="sidebar-home">
+    <a href="dashboard.html" id="nav-dashboard">&#127968; Dashboard</a>
+  </div>
+
+  <!-- Discovery -->
+  <div class="sidebar-section-label">Discovery</div>
+  <a href="search-jobs.html" id="nav-search">&#128269; Search Jobs</a>
+  <a href="recommendations.html" id="nav-recs">&#11088; Recommendations</a>
+  <a href="saved-jobs.html" id="nav-saved">&#128190; Saved Jobs</a>
+
+  <!-- Your Journey -->
+  <div class="sidebar-section-label">Your Journey</div>
+  <a href="applications.html" id="nav-apps">&#128203; Applications <span class="sidebar-badge">2</span></a>
+  <a href="interview-prep.html" id="nav-interview">&#128197; Interview Prep</a>
+  <a href="offers.html" id="nav-offers">&#128188; Offers &amp; Decisions</a>
+
+  <!-- Profile & Resources -->
+  <div class="sidebar-section-label">Profile &amp; Resources</div>
+  <a href="profile.html" id="nav-profile">&#128100; My Profile</a>
+  <a href="resumes.html" id="nav-resumes">&#128196; Resumes</a>
+  <a href="career-insights.html" id="nav-insights">&#128202; Career Insights</a>
+
+  <!-- Help & Preferences -->
+  <div class="sidebar-section-label">Help &amp; Preferences</div>
+  <a href="notifications.html" id="nav-notifs">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+  <a href="help.html" id="nav-help">&#10067; Help &amp; Feedback</a>
+  <a href="settings.html" id="nav-settings">&#9881;&#65039; Settings</a>
+
+  <!-- User info -->
+  <div class="sidebar-user">
+    <strong>John Doe</strong>
+    john@example.com<br>
+    <a href="login.html">Logout</a>
+  </div>
+</nav>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html" class="active">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Dashboard</div>
+    <div class="page-sub">Welcome back, John! Here's your overview.</div>
+
+    <!-- Alert: onboarding done -->
+    <div class="alert alert-success">
+      Onboarding complete! Your recommendations will be ready within 24 hours.
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="num">0</div>
+        <div class="label">Applications</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">20</div>
+        <div class="label">New Recommendations</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">0</div>
+        <div class="label">Saved Jobs</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">75%</div>
+        <div class="label">Profile Strength</div>
+      </div>
+    </div>
+
+    <!-- Profile strength bar -->
+    <div class="card">
+      <h3>Profile Strength: 75%</h3>
+      <div class="progress-bar-wrap" style="margin:8px 0;">
+        <div class="progress-bar-fill" style="width:75%"></div>
+      </div>
+      <p class="note">Complete your profile to get 50% more job matches.</p>
+      <div class="actions" style="margin-top:10px;">
+        <a href="profile.html" class="btn btn-secondary btn-small">Complete Profile</a>
+        <a href="resumes.html" class="btn btn-secondary btn-small">Upload Another Resume</a>
+      </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="section-heading">Quick Actions</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+      <a href="search-jobs.html" class="btn btn-secondary">&#128269; Search Jobs</a>
+      <a href="recommendations.html" class="btn btn-secondary">&#11088; View Recommendations</a>
+      <a href="applications.html" class="btn btn-secondary">&#128203; My Applications</a>
+      <a href="career-insights.html" class="btn btn-secondary">&#128202; Career Insights</a>
+    </div>
+
+    <!-- Recent recommendations preview -->
+    <div class="section-heading">Top Recommendations</div>
+    <div class="alert alert-info">
+      Your personalized recommendations will appear here once the nightly batch runs (usually 11 PM PT).
+    </div>
+
+    <!-- Sample job cards -->
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Senior Data Scientist</a></h3>
+      <div class="meta">TechCorp &nbsp;|&nbsp; San Francisco, CA &nbsp;|&nbsp; $150K - $190K &nbsp;|&nbsp; Full-time</div>
+      <span class="match-score match-high">92% Match</span>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply Now</a>
+        <a href="saved-jobs.html" class="btn btn-secondary btn-small">Save</a>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Machine Learning Engineer</a></h3>
+      <div class="meta">AI Labs &nbsp;|&nbsp; Remote &nbsp;|&nbsp; $140K - $180K &nbsp;|&nbsp; Full-time</div>
+      <span class="match-score match-high">88% Match</span>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply Now</a>
+        <a href="saved-jobs.html" class="btn btn-secondary btn-small">Save</a>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><a href="job-detail.html" style="color:#2a6dbf;text-decoration:none;">Data Engineer</a></h3>
+      <div class="meta">FinTech Inc &nbsp;|&nbsp; New York, NY &nbsp;|&nbsp; $130K - $160K &nbsp;|&nbsp; Hybrid</div>
+      <span class="match-score match-mid">76% Match</span>
+      <div class="actions">
+        <a href="job-detail.html" class="btn btn-primary btn-small">Apply Now</a>
+        <a href="saved-jobs.html" class="btn btn-secondary btn-small">Save</a>
+        <a href="job-detail.html" class="btn btn-secondary btn-small">View Details</a>
+      </div>
+    </div>
+
+    <a href="recommendations.html" class="btn btn-secondary">View all recommendations &rarr;</a>
+  </div>
+</div>
+
+</body>
+</html>

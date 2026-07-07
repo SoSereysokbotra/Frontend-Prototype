@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - My Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html" class="active">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">My Profile</div>
+    <div class="page-sub">Your profile helps us find better job matches. Stronger profile = more matches.</div>
+
+    <!-- Profile strength -->
+    <div class="card">
+      <h3>Profile Strength: 75%</h3>
+      <div class="progress-bar-wrap" style="margin:8px 0;">
+        <div class="progress-bar-fill" style="width:75%"></div>
+      </div>
+      <p class="note">Complete these sections to improve your match quality:</p>
+      <ul style="font-size:13px;margin-top:8px;padding-left:20px;color:#555;">
+        <li>Add your GitHub or portfolio link (+10%)</li>
+        <li>Add industry preferences (+5%)</li>
+        <li>Upload a second resume version (+10%)</li>
+      </ul>
+    </div>
+
+    <!-- Basic info form -->
+    <form onsubmit="alert('Profile saved!');return false;">
+      <div class="card">
+        <h3>Basic Information</h3>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;">
+          <div class="form-group" style="flex:1;min-width:160px;">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" value="John">
+          </div>
+          <div class="form-group" style="flex:1;min-width:160px;">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" value="Doe">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" placeholder="+1 (555) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="linkedin">LinkedIn URL</label>
+          <input type="text" id="linkedin" placeholder="https://linkedin.com/in/yourname">
+        </div>
+        <div class="form-group">
+          <label for="portfolio">Portfolio / GitHub</label>
+          <input type="text" id="portfolio" placeholder="https://github.com/yourname">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Job Preferences</h3>
+        <div class="form-group" style="margin-top:10px;">
+          <label for="jobtitle">Current / target job title</label>
+          <input type="text" id="jobtitle" value="Senior Data Scientist">
+        </div>
+        <div class="form-group">
+          <label for="location">Preferred location(s)</label>
+          <input type="text" id="location" value="San Francisco, CA; Remote">
+        </div>
+        <div class="form-group">
+          <label for="salary">Expected salary range</label>
+          <input type="text" id="salary" value="$150,000 - $200,000">
+          <div class="hint">Private — used only for job matching.</div>
+        </div>
+        <div class="form-group">
+          <label for="emptype">Employment type</label>
+          <select id="emptype">
+            <option selected>Full-time</option>
+            <option>Contract</option>
+            <option>Part-time</option>
+            <option>Freelance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="remote">Remote preference</label>
+          <select id="remote">
+            <option>On-site</option>
+            <option selected>Hybrid</option>
+            <option>Fully Remote</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="industry">Industries of interest</label>
+          <input type="text" id="industry" value="Technology, AI, Finance">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Skills</h3>
+        <p class="note" style="margin-bottom:8px;">Skills are parsed from your resume. You can add or remove them.</p>
+        <div style="margin-bottom:10px;">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Data Pipelines</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Spark</span>
+          <span class="tag">Tableau</span>
+        </div>
+        <div class="form-group">
+          <label for="addskill">Add a skill</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="addskill" placeholder="e.g. Kubernetes" style="flex:1;">
+            <button type="button" class="btn btn-secondary btn-small" onclick="alert('Skill added!')">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Work Experience</h3>
+        <p class="note" style="margin-bottom:8px;">Parsed from resume. Click edit to update.</p>
+        <table>
+          <thead>
+            <tr><th>Title</th><th>Company</th><th>Duration</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Senior Data Scientist</td><td>CurrentCorp</td><td>2023 - Present</td>
+              <td><button class="btn btn-secondary btn-small" onclick="alert('Edit form would appear here.')">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Data Scientist</td><td>PrevCompany</td><td>2020 - 2023</td>
+              <td><button class="btn btn-secondary btn-small" onclick="alert('Edit form would appear here.')">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Data Analyst</td><td>StartupABC</td><td>2018 - 2020</td>
+              <td><button class="btn btn-secondary btn-small" onclick="alert('Edit form would appear here.')">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-secondary btn-small" style="margin-top:10px;" onclick="alert('Add experience form would appear here.')">+ Add Experience</button>
+      </div>
+
+      <div class="card">
+        <h3>Education</h3>
+        <table>
+          <thead>
+            <tr><th>Degree</th><th>School</th><th>Year</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BS Computer Science</td><td>State University</td><td>2018</td>
+              <td><button class="btn btn-secondary btn-small" onclick="alert('Edit form.')">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-secondary btn-small" style="margin-top:10px;" onclick="alert('Add education form would appear here.')">+ Add Education</button>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="margin-bottom:20px;">Save Profile</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

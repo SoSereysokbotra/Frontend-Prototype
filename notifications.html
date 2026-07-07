@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Notifications</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html" class="active">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Notifications</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <div class="page-sub" style="margin-bottom:0;">3 unread notifications</div>
+      <button class="btn btn-secondary btn-small" onclick="alert('All marked as read.')">Mark all as read</button>
+    </div>
+
+    <!-- Notification list -->
+    <div class="card" style="padding:0;">
+      <div class="notif-item unread">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <strong>Your recommendations are ready!</strong><br>
+            We found 20 job matches based on your profile. Go check them out.
+          </div>
+          <div class="notif-time" style="white-space:nowrap;margin-left:16px;">2 hrs ago</div>
+        </div>
+        <div style="margin-top:6px;">
+          <a href="recommendations.html" class="btn btn-secondary btn-small">View Recommendations</a>
+        </div>
+      </div>
+
+      <div class="notif-item unread">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <strong>Interview invitation from AI Labs</strong><br>
+            AI Labs has invited you for a video interview for the ML Engineer role.
+          </div>
+          <div class="notif-time" style="white-space:nowrap;margin-left:16px;">5 hrs ago</div>
+        </div>
+        <div style="margin-top:6px;">
+          <a href="interview-prep.html" class="btn btn-secondary btn-small">Prepare for Interview</a>
+        </div>
+      </div>
+
+      <div class="notif-item unread">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <strong>New jobs matching your search</strong><br>
+            12 new Data Scientist jobs posted in San Francisco this week.
+          </div>
+          <div class="notif-time" style="white-space:nowrap;margin-left:16px;">1 day ago</div>
+        </div>
+        <div style="margin-top:6px;">
+          <a href="search-jobs.html" class="btn btn-secondary btn-small">Browse Jobs</a>
+        </div>
+      </div>
+
+      <div class="notif-item">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <strong>Application viewed by TechCorp</strong><br>
+            TechCorp has viewed your application for Senior Data Scientist.
+          </div>
+          <div class="notif-time" style="white-space:nowrap;margin-left:16px;">2 days ago</div>
+        </div>
+        <div style="margin-top:6px;">
+          <a href="applications.html" class="btn btn-secondary btn-small">View Application</a>
+        </div>
+      </div>
+
+      <div class="notif-item">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <strong>Profile strength improved</strong><br>
+            Your profile is now 75% complete. Add a portfolio link to reach 85%.
+          </div>
+          <div class="notif-time" style="white-space:nowrap;margin-left:16px;">3 days ago</div>
+        </div>
+        <div style="margin-top:6px;">
+          <a href="profile.html" class="btn btn-secondary btn-small">Update Profile</a>
+        </div>
+      </div>
+
+      <div class="notif-item">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <strong>Welcome to JobFits!</strong><br>
+            Account created successfully. Complete your profile to get started.
+          </div>
+          <div class="notif-time" style="white-space:nowrap;margin-left:16px;">5 days ago</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification preferences -->
+    <div class="section-heading" style="margin-top:20px;">Notification Settings</div>
+    <div class="card">
+      <p class="note" style="margin-bottom:12px;">Choose which email notifications you want to receive.</p>
+      <table>
+        <thead>
+          <tr><th>Notification Type</th><th>In-App</th><th>Email</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New recommendations ready</td>
+            <td><input type="checkbox" checked></td>
+            <td><input type="checkbox" checked></td>
+          </tr>
+          <tr>
+            <td>Application status changes</td>
+            <td><input type="checkbox" checked></td>
+            <td><input type="checkbox" checked></td>
+          </tr>
+          <tr>
+            <td>Interview invitations</td>
+            <td><input type="checkbox" checked></td>
+            <td><input type="checkbox" checked></td>
+          </tr>
+          <tr>
+            <td>New jobs matching saved search</td>
+            <td><input type="checkbox" checked></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Profile tips and reminders</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Marketing and product updates</td>
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary btn-small" style="margin-top:12px;" onclick="alert('Notification settings saved!')">Save Settings</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

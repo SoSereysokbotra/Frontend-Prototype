@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Help &amp; Feedback</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html">&#128269; Search Jobs</a>
+    <a href="recommendations.html">&#11088; Recommendations</a>
+    <a href="saved-jobs.html">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html">&#128197; Interview Prep</a>
+    <a href="offers.html">&#128188; Offers &amp; Decisions</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html">&#128100; My Profile</a>
+    <a href="resumes.html">&#128196; Resumes</a>
+    <a href="career-insights.html">&#128202; Career Insights</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html" class="active">&#10067; Help &amp; Feedback</a>
+    <a href="settings.html">&#9881;&#65039; Settings</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Help &amp; Feedback</div>
+    <div class="page-sub">Find answers to common questions or reach out to support.</div>
+
+    <!-- Search Help -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search for help topics...">
+      <button onclick="alert('Help search submitted')">Search</button>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="section-heading">Frequently Asked Questions</div>
+    
+    <div class="card" style="margin-bottom:8px;">
+      <h3 style="margin-bottom:4px;cursor:pointer;color:#2a6dbf;" onclick="alert('Expands answer')">How does the match score work?</h3>
+      <div style="font-size:14px;color:#444;display:none;"> <!-- Hidden by default, simple toggle logic would go here -->
+        Your match score is calculated by comparing your profile (skills, experience, location, preferences) against the job requirements. A higher score means your profile aligns more closely with what the employer is looking for.
+      </div>
+    </div>
+    
+    <div class="card" style="margin-bottom:8px;">
+      <h3 style="margin-bottom:4px;cursor:pointer;color:#2a6dbf;" onclick="alert('Expands answer')">When are my recommendations updated?</h3>
+    </div>
+
+    <div class="card" style="margin-bottom:8px;">
+      <h3 style="margin-bottom:4px;cursor:pointer;color:#2a6dbf;" onclick="alert('Expands answer')">How do I change my default resume?</h3>
+    </div>
+
+    <div class="card" style="margin-bottom:16px;">
+      <h3 style="margin-bottom:4px;cursor:pointer;color:#2a6dbf;" onclick="alert('Expands answer')">Is my profile visible to employers?</h3>
+    </div>
+
+    <!-- Submit Feedback / Support Ticket -->
+    <div class="section-heading">Contact Support / Provide Feedback</div>
+    <div class="card">
+      <p style="font-size:13px;color:#555;margin-bottom:12px;">Having an issue or have a suggestion? Let us know.</p>
+      
+      <form onsubmit="alert('Feedback submitted!'); return false;">
+        <div class="form-group">
+          <label>Type of Inquiry</label>
+          <select>
+            <option>General Question</option>
+            <option>Report a Bug</option>
+            <option>Feature Request</option>
+            <option>Account Issue</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Brief summary of your request" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Describe your issue or feedback in detail..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
