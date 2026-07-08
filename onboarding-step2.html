@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Onboarding: Work Preferences</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-page" style="align-items:flex-start;padding:40px 0;">
+  <div class="auth-box" style="width:520px;">
+    <h1>What are you looking for?</h1>
+    <p class="sub">Progress: 2/5 - Work Preferences</p>
+
+    <div class="step-indicator">
+      <span class="step done">1</span>
+      <span class="step active">2</span>
+      <span class="step">3</span>
+      <span class="step">4</span>
+      <span class="step">5</span>
+    </div>
+
+    <form action="onboarding-step3.html" method="get">
+      <div class="form-group">
+        <label for="remote">Remote Preference</label>
+        <select id="remote" name="remote">
+          <option value="">-- Select --</option>
+          <option value="remote_only">Remote Only</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="onsite">On-Site</option>
+          <option value="flexible">Flexible</option>
+        </select>
+      </div>
+
+      <div style="display:flex;gap:10px;">
+        <div class="form-group" style="flex:1;">
+          <label for="salaryMin">Expected Salary Min ($)</label>
+          <input type="number" id="salaryMin" name="salaryMin" placeholder="e.g. 100000">
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label for="salaryMax">Expected Salary Max ($)</label>
+          <input type="number" id="salaryMax" name="salaryMax" placeholder="e.g. 150000">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="roles">Preferred Job Roles</label>
+        <input type="text" id="roles" name="roles" placeholder="e.g. Senior Frontend Engineer, React Developer">
+        <div class="hint">Separate with commas.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Willing to Relocate?</label>
+        <div style="display:flex;gap:15px;margin-top:5px;">
+          <label><input type="radio" name="relocate" value="yes"> Yes</label>
+          <label><input type="radio" name="relocate" value="no" checked> No</label>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:20px;">
+        <a href="onboarding-step1.html" class="btn btn-secondary" style="flex:0 0 auto;">Back</a>
+        <button type="submit" class="btn btn-primary" style="flex:1;">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

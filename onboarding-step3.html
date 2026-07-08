@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Onboarding: Upload Resume</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-page" style="align-items:flex-start;padding:40px 0;">
+  <div class="auth-box" style="width:520px;">
+    <h1>Upload your resume</h1>
+    <p class="sub">Progress: 3/5 - We'll auto-fill your skills and experience</p>
+
+    <div class="step-indicator">
+      <span class="step done">1</span>
+      <span class="step done">2</span>
+      <span class="step active">3</span>
+      <span class="step">4</span>
+      <span class="step">5</span>
+    </div>
+
+    <div class="upload-zone" onclick="document.getElementById('resumeFile').click()">
+      <p>Drag your resume here or click to browse</p>
+      <p class="note">Accepted: PDF, DOCX, DOC (Max 5MB)</p>
+      <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx" style="display:none;">
+    </div>
+
+    <!-- Show file picked (for testing) -->
+    <div class="info-msg" style="display:none;" id="fileReady">
+      Ready to upload: <strong>Resume_v3.pdf</strong> (2.3 MB)
+    </div>
+
+    <div style="display:flex;gap:10px;margin-top:20px;">
+      <a href="onboarding-step2.html" class="btn btn-secondary" style="flex:0 0 auto;">Back</a>
+      <a href="onboarding-step4.html" class="btn btn-primary" style="flex:1;text-align:center;">Upload and Continue</a>
+    </div>
+
+    <div style="text-align:center;margin-top:10px;">
+      <a href="onboarding-step4.html" style="color:#888;font-size:13px;text-decoration:none;">
+        Skip for now
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

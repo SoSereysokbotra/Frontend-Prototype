@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Onboarding: Profile Setup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-page" style="align-items:flex-start;padding:40px 0;">
+  <div class="auth-box" style="width:520px;">
+    <h1>Let's set up your profile</h1>
+    <p class="sub">Progress: 1/5 - Profile Setup</p>
+
+    <div class="step-indicator">
+      <span class="step active">1</span>
+      <span class="step">2</span>
+      <span class="step">3</span>
+      <span class="step">4</span>
+      <span class="step">5</span>
+    </div>
+
+    <form action="onboarding-step2.html" method="get">
+      <div style="display:flex;gap:10px;">
+        <div class="form-group" style="flex:1;">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" value="John">
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" value="Doe">
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;">
+        <div class="form-group" style="flex:1;">
+          <label for="phone">Phone Number (Optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label for="dob">Date of Birth (Optional)</label>
+          <input type="date" id="dob" name="dob">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location *</label>
+        <input type="text" id="location" name="location" placeholder="e.g. San Francisco, CA" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Bio (Optional)</label>
+        <textarea id="bio" name="bio" rows="3" placeholder="Tell us a little about yourself..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Profile Photo</label>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:50px;height:50px;background:#eee;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#999;">Photo</div>
+          <input type="file" id="photo" name="photo" accept="image/*">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Profile Visibility</label>
+        <div style="display:flex;gap:15px;margin-top:5px;">
+          <label><input type="radio" name="visibility" value="public" checked> Public</label>
+          <label><input type="radio" name="visibility" value="private"> Private</label>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:20px;">
+        <button type="submit" class="btn btn-primary" style="flex:1;">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - My Stats</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .stats-card-group { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+    .stat-card { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 20px; flex: 1; min-width: 150px; text-align: center; }
+    .stat-card .num { font-size: 28px; font-weight: bold; color: #2a6dbf; margin-bottom: 5px; }
+    .stat-card .label { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    .chart-placeholder { height: 200px; background: #f9f9f9; border: 1px dashed #ccc; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999; margin-bottom: 20px; }
+    .insight-list { list-style: none; padding: 0; margin: 0; }
+    .insight-list li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 10px; }
+    .insight-list li:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html" id="nav-dashboard">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html" id="nav-search">&#128269; Search Jobs</a>
+    <a href="recommendations.html" id="nav-recs">&#11088; AI Recommendations</a>
+    <a href="saved-jobs.html" id="nav-saved">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html" id="nav-apps">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html" id="nav-interview">&#128197; Interview Prep</a>
+    <a href="offers.html" id="nav-offers">&#128188; Offers &amp; Decisions</a>
+    <a href="my-stats.html" class="active" id="nav-stats">&#128202; My Stats</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html" id="nav-profile">&#128100; My Profile</a>
+    <a href="skills-experience.html" id="nav-skills">&#128188; Skills &amp; Experience</a>
+    <a href="resumes.html" id="nav-resumes">&#128196; Resumes</a>
+    <a href="career-insights.html" id="nav-insights">&#128200; Career Insights</a>
+    <a href="salary-intelligence.html" id="nav-salary">&#128161; Salary Intelligence</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html" id="nav-notifs">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html" id="nav-help">&#10067; Help Center</a>
+    <a href="settings.html" id="nav-settings">&#9881;&#65039; Settings</a>
+    <a href="referrals.html" id="nav-referrals">&#127873; Referrals</a>
+    <a href="subscription.html" id="nav-subscription">&#11088; Subscription</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com | Free Plan<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+      <div>
+        <div class="page-title">My Stats</div>
+        <div class="page-sub">Your personal application analytics</div>
+      </div>
+      <div>
+        <button class="btn btn-secondary btn-small">Export as PDF</button>
+        <button class="btn btn-secondary btn-small">Export as CSV</button>
+      </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="stats-card-group">
+      <div class="stat-card">
+        <div class="num">15</div>
+        <div class="label">Total Applications</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">3</div>
+        <div class="label">Interviews Scheduled</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">2</div>
+        <div class="label">Offers Received</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">20%</div>
+        <div class="label">Interview Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">67%</div>
+        <div class="label">Offer Rate</div>
+      </div>
+    </div>
+
+    <!-- Charts area -->
+    <div style="display:flex; gap:20px; margin-bottom: 20px;">
+      <div class="card" style="flex:2;">
+        <h3>Applications Timeline</h3>
+        <p class="note" style="margin-bottom:10px;">Applications per month (last 3 months)</p>
+        <div class="chart-placeholder">[ Line Chart Placeholder ]</div>
+      </div>
+      <div class="card" style="flex:1;">
+        <h3>Application Status</h3>
+        <p class="note" style="margin-bottom:10px;">Breakdown of current statuses</p>
+        <div class="chart-placeholder" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto; margin-bottom: 20px;">
+          [ Pie Chart ]
+        </div>
+        <p style="text-align:center; font-size: 13px;">Applied: 40% | Interview: 20% | Offer: 13% | Rejected: 27%</p>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:20px;">
+      <!-- Insights -->
+      <div class="card" style="flex:1;">
+        <h3>AI Insights</h3>
+        <ul class="insight-list">
+          <li>
+            <span>💡</span>
+            <div>Your interview rate is 20% vs 15% platform average. Keep it up!</div>
+          </li>
+          <li>
+            <span>💡</span>
+            <div>Companies in San Francisco pay 15% more on average for your role.</div>
+          </li>
+          <li>
+            <span>💡</span>
+            <div>You're strongest in Python (88% match average).</div>
+          </li>
+          <li>
+            <span>💡</span>
+            <div>Improve your skills in Go (+12% match potential) to unlock more jobs.</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Top Metrics -->
+      <div class="card" style="flex:1;">
+        <h3>Top Activity</h3>
+        <div style="margin-bottom: 15px;">
+          <h4 style="font-size: 14px; margin-bottom: 5px;">Most applied companies</h4>
+          <div class="note">Acme Corp (3), TechCo (2), AI Labs (2)</div>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <h4 style="font-size: 14px; margin-bottom: 5px;">Most applied roles</h4>
+          <div class="note">Senior Software Engineer (5), Tech Lead (3), Data Engineer (2)</div>
+        </div>
+        <hr style="border:none; border-top:1px solid #eee; margin:15px 0;">
+        <div style="display:flex; justify-content:space-between; font-size:13px;">
+          <span style="color:#666;">Last application:</span>
+          <strong>3 days ago</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; margin-top:5px;">
+          <span style="color:#666;">Last interview:</span>
+          <strong>5 days ago</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

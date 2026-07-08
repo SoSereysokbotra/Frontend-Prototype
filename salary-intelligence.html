@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Salary Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html" id="nav-dashboard">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html" id="nav-search">&#128269; Search Jobs</a>
+    <a href="recommendations.html" id="nav-recs">&#11088; AI Recommendations</a>
+    <a href="saved-jobs.html" id="nav-saved">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html" id="nav-apps">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html" id="nav-interview">&#128197; Interview Prep</a>
+    <a href="offers.html" id="nav-offers">&#128188; Offers &amp; Decisions</a>
+    <a href="my-stats.html" id="nav-stats">&#128202; My Stats</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html" id="nav-profile">&#128100; My Profile</a>
+    <a href="skills-experience.html" id="nav-skills">&#128188; Skills &amp; Experience</a>
+    <a href="resumes.html" id="nav-resumes">&#128196; Resumes</a>
+    <a href="career-insights.html" id="nav-insights">&#128200; Career Insights</a>
+    <a href="salary-intelligence.html" class="active" id="nav-salary">&#128161; Salary Intelligence</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html" id="nav-notifs">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html" id="nav-help">&#10067; Help Center</a>
+    <a href="settings.html" id="nav-settings">&#9881;&#65039; Settings</a>
+    <a href="referrals.html" id="nav-referrals">&#127873; Referrals</a>
+    <a href="subscription.html" id="nav-subscription">&#11088; Subscription</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com | Free Plan<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Salary Intelligence</div>
+    <div class="page-sub">Explore market data and compare compensation packages</div>
+
+    <!-- Search Tool -->
+    <div class="card" style="margin-bottom: 20px;">
+      <h3 style="margin-bottom: 10px;">Check Salary Data</h3>
+      <div style="display:flex; gap:10px;">
+        <input type="text" placeholder="Job Title (e.g., Senior Software Engineer)" style="flex:2; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        <input type="text" placeholder="Location (e.g., San Francisco, CA)" style="flex:1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        <button class="btn btn-primary">Search</button>
+      </div>
+    </div>
+
+    <!-- Results Overview -->
+    <div class="card" style="margin-bottom: 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;">
+        <div>
+          <h2 style="margin:0; font-size: 20px;">Senior Software Engineer</h2>
+          <div style="color:#666; font-size: 14px;">San Francisco, CA • Based on 234 submitted salaries</div>
+        </div>
+        <button class="btn btn-secondary btn-small">Compare Locations</button>
+      </div>
+
+      <div style="display:flex; gap: 20px;">
+        <!-- Base Salary -->
+        <div style="flex:1; text-align:center; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+          <div style="font-size: 14px; color: #666; text-transform: uppercase;">Median Base Salary</div>
+          <div style="font-size: 32px; font-weight: bold; color: #2a6dbf; margin: 10px 0;">$175,000</div>
+          <div style="font-size: 13px; color: #888;">Range: $145k - $220k</div>
+        </div>
+        
+        <!-- Bonus -->
+        <div style="flex:1; text-align:center; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+          <div style="font-size: 14px; color: #666; text-transform: uppercase;">Median Annual Bonus</div>
+          <div style="font-size: 32px; font-weight: bold; color: #2a6dbf; margin: 10px 0;">15%</div>
+          <div style="font-size: 13px; color: #888;">Range: 10% - 25%</div>
+        </div>
+        
+        <!-- Total Comp -->
+        <div style="flex:1; text-align:center; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+          <div style="font-size: 14px; color: #666; text-transform: uppercase;">Total Compensation</div>
+          <div style="font-size: 32px; font-weight: bold; color: #2a6dbf; margin: 10px 0;">$210,500</div>
+          <div style="font-size: 13px; color: #888;">Range: $160k - $250k</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px; text-align:center; padding: 30px; border: 1px dashed #ccc; border-radius: 8px; color: #999;">
+        [ Box Plot Chart Visualization Placeholder ]
+      </div>
+    </div>
+
+    <!-- Negotiation Guide -->
+    <div class="card">
+      <div style="display:flex; align-items:center; gap: 15px;">
+        <div style="font-size: 30px;">🤝</div>
+        <div>
+          <h3 style="margin: 0 0 5px 0;">Need help negotiating?</h3>
+          <p style="margin:0; color:#555; font-size:14px;">Use our AI assistant to craft the perfect counter-offer based on market data and your specific experience.</p>
+        </div>
+        <div style="margin-left: auto;">
+          <a href="offers.html" class="btn btn-primary">Start Negotiation Draft</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

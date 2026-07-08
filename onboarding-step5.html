@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Onboarding: Preferences</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-page" style="align-items:flex-start;padding:40px 0;">
+  <div class="auth-box" style="width:520px;">
+    <h1>Stay updated with JobFits</h1>
+    <p class="sub">Progress: 5/5 - Notification & App Preferences</p>
+
+    <div class="step-indicator">
+      <span class="step done">1</span>
+      <span class="step done">2</span>
+      <span class="step done">3</span>
+      <span class="step done">4</span>
+      <span class="step active">5</span>
+    </div>
+
+    <form action="dashboard.html" method="get">
+      <h3 style="font-size:15px;margin-bottom:10px;">Notification Settings</h3>
+      
+      <div class="form-group">
+        <label>Frequency</label>
+        <div style="display:flex;gap:15px;margin-top:5px;">
+          <label><input type="radio" name="freq" value="realtime" checked> Real-time</label>
+          <label><input type="radio" name="freq" value="daily"> Daily Digest</label>
+          <label><input type="radio" name="freq" value="weekly"> Weekly</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Channels</label>
+        <div style="display:flex;gap:15px;margin-top:5px;">
+          <label><input type="checkbox" name="channel_inapp" checked> In-app</label>
+          <label><input type="checkbox" name="channel_email" checked> Email</label>
+          <label><input type="checkbox" name="channel_push"> Push</label>
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #eee;margin:20px 0;">
+      
+      <h3 style="font-size:15px;margin-bottom:10px;">App Preferences</h3>
+
+      <div style="display:flex;gap:10px;">
+        <div class="form-group" style="flex:1;">
+          <label for="theme">Theme</label>
+          <select id="theme" name="theme">
+            <option value="system">System Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label for="language">Language</label>
+          <select id="language" name="language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:20px;">
+        <a href="onboarding-step4.html" class="btn btn-secondary" style="flex:0 0 auto;">Back</a>
+        <button type="submit" class="btn btn-primary" style="flex:1;">Finish Setup</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

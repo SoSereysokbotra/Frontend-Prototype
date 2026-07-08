@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Referrals</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .referral-box { background: #eef5fb; border: 1px solid #cce0f5; border-radius: 8px; padding: 30px; text-align: center; margin-bottom: 20px; }
+    .referral-code { font-size: 24px; font-weight: bold; font-family: monospace; background: #fff; border: 2px dashed #2a6dbf; padding: 10px 20px; display: inline-block; margin: 15px 0; border-radius: 6px; letter-spacing: 2px; }
+    .reward-tiers { display: flex; gap: 15px; margin-top: 30px; }
+    .reward-tier { flex: 1; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; text-align: center; }
+    .tier-icon { font-size: 32px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">JOBFITS</div>
+    <div class="sidebar-home">
+      <a href="dashboard.html" id="nav-dashboard">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Discovery</div>
+    <a href="search-jobs.html" id="nav-search">&#128269; Search Jobs</a>
+    <a href="recommendations.html" id="nav-recs">&#11088; AI Recommendations</a>
+    <a href="saved-jobs.html" id="nav-saved">&#128190; Saved Jobs</a>
+    <div class="sidebar-section-label">Your Journey</div>
+    <a href="applications.html" id="nav-apps">&#128203; Applications <span class="sidebar-badge">2</span></a>
+    <a href="interview-prep.html" id="nav-interview">&#128197; Interview Prep</a>
+    <a href="offers.html" id="nav-offers">&#128188; Offers &amp; Decisions</a>
+    <a href="my-stats.html" id="nav-stats">&#128202; My Stats</a>
+    <div class="sidebar-section-label">Profile &amp; Resources</div>
+    <a href="profile.html" id="nav-profile">&#128100; My Profile</a>
+    <a href="skills-experience.html" id="nav-skills">&#128188; Skills &amp; Experience</a>
+    <a href="resumes.html" id="nav-resumes">&#128196; Resumes</a>
+    <a href="career-insights.html" id="nav-insights">&#128200; Career Insights</a>
+    <a href="salary-intelligence.html" id="nav-salary">&#128161; Salary Intelligence</a>
+    <div class="sidebar-section-label">Help &amp; Preferences</div>
+    <a href="notifications.html" id="nav-notifs">&#128276; Notifications <span class="sidebar-badge">3</span></a>
+    <a href="help.html" id="nav-help">&#10067; Help Center</a>
+    <a href="settings.html" id="nav-settings">&#9881;&#65039; Settings</a>
+    <a href="referrals.html" class="active" id="nav-referrals">&#127873; Referrals</a>
+    <a href="subscription.html" id="nav-subscription">&#11088; Subscription</a>
+    <div class="sidebar-user">
+      <strong>John Doe</strong>
+      john@example.com | Free Plan<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-title">Refer a Friend</div>
+    <div class="page-sub">Invite your friends to JobFits and earn premium rewards</div>
+
+    <div class="referral-box">
+      <h2 style="margin:0 0 10px 0; color: #2a6dbf;">Give 1 Month Premium, Get 1 Month Free</h2>
+      <p style="color: #555; max-width: 500px; margin: 0 auto;">When your friend signs up using your link, they'll get their first month of Premium for free, and you'll get a free month added to your account!</p>
+      
+      <div class="referral-code">JOHN2026JF</div>
+      <br>
+      <button class="btn btn-primary" style="margin-right: 10px;">Copy Link</button>
+      <button class="btn btn-secondary">Share via Email</button>
+    </div>
+
+    <h3>Your Referral Stats</h3>
+    <div style="display:flex; gap: 20px; margin-bottom: 30px;">
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size: 32px; font-weight: bold; color: #333;">12</div>
+        <div style="font-size: 13px; color: #666; text-transform: uppercase;">Clicks</div>
+      </div>
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size: 32px; font-weight: bold; color: #2a6dbf;">3</div>
+        <div style="font-size: 13px; color: #666; text-transform: uppercase;">Signups</div>
+      </div>
+      <div class="card" style="flex:1; text-align:center;">
+        <div style="font-size: 32px; font-weight: bold; color: #2da44e;">3 mo</div>
+        <div style="font-size: 13px; color: #666; text-transform: uppercase;">Premium Earned</div>
+      </div>
+    </div>
+
+    <h3>Rewards Program</h3>
+    <div class="reward-tiers">
+      <div class="reward-tier">
+        <div class="tier-icon">🥉</div>
+        <h4>1 Referral</h4>
+        <p style="font-size: 13px; color: #666;">Unlock 1 free month of Premium.</p>
+        <div style="margin-top: 10px; color: #2da44e; font-weight: bold;">Unlocked ✓</div>
+      </div>
+      <div class="reward-tier">
+        <div class="tier-icon">🥈</div>
+        <h4>3 Referrals</h4>
+        <p style="font-size: 13px; color: #666;">Unlock 3 free months of Premium.</p>
+        <div style="margin-top: 10px; color: #2da44e; font-weight: bold;">Unlocked ✓</div>
+      </div>
+      <div class="reward-tier">
+        <div class="tier-icon">🥇</div>
+        <h4>5 Referrals</h4>
+        <p style="font-size: 13px; color: #666;">Get 1 year of Professional tier for free.</p>
+        <div style="margin-top: 10px; color: #888;">2 more needed</div>
+        <div class="progress-bar-wrap" style="margin-top:8px;">
+          <div class="progress-bar-fill" style="width:60%"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobFits - Onboarding: Skills & Experience</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .section-box { border: 1px solid #eee; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+    .section-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+    .item-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f5f5f5; }
+    .item-row:last-child { border-bottom: none; }
+    .item-title { font-weight: 500; font-size: 14px; }
+    .item-meta { color: #666; font-size: 12px; }
+    .btn-small { padding: 4px 8px; font-size: 12px; border: 1px solid #ddd; background: #fff; border-radius: 4px; cursor: pointer; }
+    .btn-small:hover { background: #f9f9f9; }
+  </style>
+</head>
+<body>
+
+<div class="auth-page" style="align-items:flex-start;padding:40px 0;">
+  <div class="auth-box" style="width:600px;">
+    <h1>Review & complete your background</h1>
+    <p class="sub">Progress: 4/5 - Skills, Experience & Education</p>
+
+    <div class="step-indicator">
+      <span class="step done">1</span>
+      <span class="step done">2</span>
+      <span class="step done">3</span>
+      <span class="step active">4</span>
+      <span class="step">5</span>
+    </div>
+
+    <form action="onboarding-step5.html" method="get">
+      <!-- Skills -->
+      <div class="section-box">
+        <div class="section-title">Skills</div>
+        <div class="item-row">
+          <div>
+            <div class="item-title">JavaScript</div>
+            <div class="item-meta">Advanced • 5 years</div>
+          </div>
+          <button type="button" class="btn-small">Remove</button>
+        </div>
+        <div class="item-row">
+          <div>
+            <div class="item-title">React</div>
+            <div class="item-meta">Intermediate • 3 years</div>
+          </div>
+          <button type="button" class="btn-small">Remove</button>
+        </div>
+        <button type="button" class="btn-small" style="margin-top:10px;">+ Add Skill</button>
+      </div>
+
+      <!-- Experience -->
+      <div class="section-box">
+        <div class="section-title">Experience</div>
+        <div class="item-row">
+          <div>
+            <div class="item-title">Software Engineer at Acme Corp</div>
+            <div class="item-meta">Jan 2020 - Present • San Francisco, CA</div>
+          </div>
+          <div style="display:flex;gap:5px;">
+            <button type="button" class="btn-small">Edit</button>
+            <button type="button" class="btn-small">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn-small" style="margin-top:10px;">+ Add Experience</button>
+      </div>
+
+      <!-- Education -->
+      <div class="section-box">
+        <div class="section-title">Education</div>
+        <div class="item-row">
+          <div>
+            <div class="item-title">B.S. Computer Science</div>
+            <div class="item-meta">University of Technology • 2016 - 2020</div>
+          </div>
+          <div style="display:flex;gap:5px;">
+            <button type="button" class="btn-small">Edit</button>
+            <button type="button" class="btn-small">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn-small" style="margin-top:10px;">+ Add Education</button>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:20px;">
+        <a href="onboarding-step3.html" class="btn btn-secondary" style="flex:0 0 auto;">Back</a>
+        <button type="submit" class="btn btn-primary" style="flex:1;">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
