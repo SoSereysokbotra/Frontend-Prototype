@@ -2,29 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>JobFits - Verify Email</title>
+    <title>JobFits - Verify Reset Code</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="auth-page">
       <div class="auth-box">
-        <div class="auth-kicker">Email verification</div>
-        <h1>Verify Your Email</h1>
+        <div class="auth-kicker">Password reset</div>
+        <h1>Verify reset code</h1>
         <p class="sub">
           Enter the 6-digit code we sent to john@example.com. The code expires
           in 10 minutes.
         </p>
 
         <div class="info-msg">
-          We sent a verification code to <strong>john@example.com</strong>.
-          Enter the code below to finish signup and continue to onboarding.
+          If an account exists for this email, we sent a reset code. Enter it
+          below to continue to the password reset page.
         </div>
 
-        <form action="onboarding-step1.html" method="get">
-          <label for="otp-1">Verification code</label>
-          <div class="otp-grid" aria-label="6 digit verification code">
+        <form action="reset-password.html" method="get">
+          <label for="otp-reset-1">Reset code</label>
+          <div class="otp-grid" aria-label="6 digit reset code">
             <input
-              id="otp-1"
+              id="otp-reset-1"
               type="text"
               maxlength="1"
               inputmode="numeric"
@@ -44,7 +44,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary btn-full">
-            Verify Email
+            Verify Code
           </button>
         </form>
 
@@ -52,15 +52,15 @@
           <button class="btn btn-secondary btn-full" type="button">
             Resend Code
           </button>
-          <button class="btn btn-secondary btn-full" type="button">
-            Change Email
-          </button>
         </div>
 
         <!-- Example states -->
         <!-- <div class="error-msg">The verification code is incorrect.</div> -->
         <!-- <div class="warning-msg">The verification code has expired.</div> -->
 
+        <div class="link-row">
+          <a href="forgot-password.html">Use a different email</a>
+        </div>
         <div class="link-row">
           <a href="login.html">Back to login</a>
         </div>

@@ -180,194 +180,552 @@ Signup → Complete Profile → Upload Resume → View Recommendations → Apply
 
 ---
 
-## FLOW 0: AUTHENTICATION
+# FLOW 0: AUTHENTICATION
 
-**Overview:** Complete authentication lifecycle including signup, email verification, password reset, and session management.
+**Overview:** Complete authentication lifecycle including signup, email verification via 6-digit OTP, password reset, and session management.
 
-**ER Tables:** users, refresh_tokens  
-**Database Constraints:**
-- Email must be unique (UNIQUE constraint)
-- Password requires hash (bcrypt or similar)
-- Email verification token must expire within 24h
-- Refresh token must expire after 30 days
+**ER Tables:** `users`, `refresh_tokens`
 
-### 0.1: New User Signup Path
+## Database Constraints
 
-**SRS Reference:** FR-AUTH-001
+- Email must be unique (`UNIQUE` constraint)
+- Password must be stored as a bcrypt hash
+- Email verification OTP expires in **10 minutes**
+- Password reset OTP expires in **10 minutes**
+- Refresh token expires after **30 days**
 
-#### Option 1: OAuth Signup (Google or LinkedIn)
-```
+---
+
+# 0.1 New User Signup Path
+
+**SRS Reference:** `FR-AUTH-001`
+
+## Option 1: OAuth Signup (Google / LinkedIn)
+
+```text
 User clicks [Sign up with Google]
     ↓
-Redirect to OAuth provider consent screen
+Redirect to OAuth provider
     ↓
-Provider returns: email, firstName, lastName, profilePhotoUrl
+Provider returns:
+├─ email
+├─ firstName
+├─ lastName
+└─ profilePhotoUrl
     ↓
-Backend creates users record:
-├─ INSERT users (email, firstName, lastName, profilePhotoUrl, isEmailVerified=true, role='USER', createdAt=NOW)
-├─ Generate JWT session token (30-day expiry)
-└─ CREATE refresh_tokens (userId, token, expiresAt=NOW+30days)
+Backend:
+├─ Check if email already exists
+├─ If user does not exist:
+│   └─ INSERT users
+│       ├─ email
+│       ├─ firstName
+│       ├─ lastName
+│       ├─ profilePhotoUrl
+│       ├─ role='USER'
+│       ├─ isEmailVerified=true
+│       └─ createdAt=NOW
+├─ Generate Access Token
+├─ Generate Refresh Token (30 days)
+└─ Save refresh token
     ↓
-Skip email verification (OAuth provides trust)
+Skip email verification
     ↓
-Auto-redirect to Flow 1 (Onboarding - Step 1: Profile Setup)
+Redirect to Flow 1 (Onboarding)
 ```
 
-#### Option 2: Email/Password Signup
-```
-User fills signup form:
-├─ Email [required, validate format]
-├─ Password [required, 8+ chars, 1 uppercase, 1 number, 1 special char]
-├─ Confirm Password [must match]
-└─ I agree to Terms [checkbox required]
+---
+
+## Option 2: Email & Password Signup
+
+```text
+User opens Signup Page
     ↓
-Client-side validation:
-├─ Email format (RFC 5322 basic check)
-├─ Password strength indicator (real-time)
-└─ Terms checkbox checked
+Display Signup Form
+├─ Email
+├─ Password
+├─ Confirm Password
+└─ Agree to Terms & Conditions
     ↓
-On [Create Account]:
-├─ Backend validation:
-│  ├─ Email uniqueness check
-│  ├─ Password hash with bcrypt (10 rounds minimum)
-│  └─ Reject if email already exists
-├─ INSERT users (email, passwordHash, role='USER', createdAt=NOW, isEmailVerified=false)
-├─ Generate email verification token (24-hour expiry)
-└─ Send verification email
+Client-side Validation
+├─ Validate email format
+├─ Password strength
+├─ Passwords match
+└─ Terms accepted
     ↓
-Email Verification Page:
-├─ Display: "Verify Your Email"
-├─ Message: "We've sent a verification link to john@example.com"
-├─ Timer: "Link expires in 24 hours"
-├─ Actions: [Open Email App] [Resend Verification] [Change Email]
+User clicks [Create Account]
     ↓
-User clicks verification link:
-├─ Backend validates token
-├─ If valid: UPDATE users SET isEmailVerified=true, emailVerificationCode=NULL
-├─ Display: "✓ Email verified!"
-└─ Auto-redirect to Flow 1 (Onboarding)
+Backend Validation
+├─ Check email uniqueness
+├─ Hash password (bcrypt)
+└─ INSERT users
+    ├─ email
+    ├─ passwordHash
+    ├─ role='USER'
+    ├─ isEmailVerified=false
+    └─ createdAt=NOW
+    ↓
+Generate:
+├─ 6-digit verification OTP
+├─ Expiry = NOW + 10 minutes
+└─ Save OTP in database
+    ↓
+Send verification email
+├─ Subject: Verify Your Email
+└─ Content: 6-digit verification code
+    ↓
+Redirect user to Verify Email Page
 ```
 
-### 0.2: Existing User Login Path
+---
 
+## Verify Email Page
+
+```text
+Display
+─────────────────────────────
+Verify Your Email
+
+We've sent a verification code to
+
+john@example.com
+
+[ _ ] [ _ ] [ _ ] [ _ ] [ _ ] [ _ ]
+
+Code expires in:
+09:59
+
+Buttons:
+├─ Verify
+├─ Resend Code
+└─ Change Email
+─────────────────────────────
+    ↓
+User enters OTP
+    ↓
+Backend
+├─ Find user by email
+├─ Verify OTP
+├─ Check expiration
+└─ Compare codes
 ```
-User navigates to login page
+
+### Valid OTP
+
+```text
+Backend
+├─ UPDATE users
+│   ├─ isEmailVerified=true
+│   ├─ verificationCode=NULL
+│   └─ verificationExpiry=NULL
+├─ Generate Access Token
+├─ Generate Refresh Token
+└─ Save refresh token
     ↓
-Display: Login Form
-├─ Email [required]
-├─ Password [required]
-├─ [Sign in with Google] [Sign in with LinkedIn]
-├─ Link: "Forgot password?"
-└─ Link: "No account? Sign up"
+Redirect to Flow 1 (Onboarding)
+```
+
+### Invalid OTP
+
+```text
+Display
+
+"The verification code is incorrect."
+
+Actions:
+├─ Try Again
+└─ Resend Code
+```
+
+### Expired OTP
+
+```text
+Display
+
+"The verification code has expired."
+
+Actions:
+├─ Resend Code
+└─ Change Email
+```
+
+---
+
+# 0.2 Existing User Login Path
+
+```text
+User opens Login Page
     ↓
-Option 1: Email/Password Login
-├─ User enters credentials
-├─ Backend:
-│  ├─ SELECT * FROM users WHERE email=?
-│  ├─ If not found: Show "Email or password incorrect"
-│  ├─ If found: Compare password hash (bcrypt.compare)
-│  ├─ If mismatch: Increment failed attempts
-│  │  └─ Lock account if 5+ failed attempts in 15 min
-│  ├─ If match: Generate JWT session token + refresh token
-│  │  ├─ INSERT refresh_tokens (userId, token, expiresAt=NOW+30days)
-│  │  └─ UPDATE users SET lastLoginAt=NOW
-│  └─ Return { sessionToken, refreshToken, userId }
-├─ Store tokens (secure httpOnly cookies)
+Display
+├─ Email
+├─ Password
+├─ Sign in with Google
+├─ Sign in with LinkedIn
+├─ Forgot Password?
+└─ Create Account
+    ↓
+Option 1:
+Email & Password Login
+    ↓
+Backend
+├─ Find user
+├─ Compare password hash
+├─ Check failed login attempts
+├─ Check account lock
+├─ Check email verification
+```
+
+### Email Not Verified
+
+```text
+Backend
+├─ Generate new 6-digit OTP
+├─ Save OTP
+├─ Send verification email
+└─ Redirect to Verify Email Page
+```
+
+### Email Verified
+
+```text
+Backend
+├─ Generate Access Token
+├─ Generate Refresh Token
+├─ Store Refresh Token
+├─ Update lastLoginAt
 └─ Redirect to Dashboard
-    ↓
-Option 2: OAuth Login
-├─ Similar to signup but check if user exists
-├─ If not found: Treat as signup (auto-create user)
-└─ If found: Update lastLoginAt, return tokens
-    ↓
-Account Locked Edge Case:
-├─ If 5+ failed attempts in 15 minutes:
-│  ├─ UPDATE users SET locked=true
-│  ├─ Show: "Account temporarily locked. Check email for unlock link."
-│  ├─ Send unlock email with 15-minute token
-│  └─ User must click email link to unlock or wait 15 min
 ```
 
-**API Endpoints:**
+---
+
+## OAuth Login
+
+```text
+User clicks Google or LinkedIn Login
+    ↓
+Redirect to OAuth Provider
+    ↓
+Provider returns user information
+    ↓
+Backend
+├─ Check if user exists
+├─ If not:
+│   └─ Create new verified account
+├─ Generate tokens
+└─ Redirect to Flow 1 (Onboarding) or Dashboard
 ```
+
+---
+
+## Account Locked
+
+```text
+If 5 failed login attempts within 15 minutes
+
+Backend
+├─ Lock account temporarily
+├─ Generate unlock OTP
+├─ Send unlock email
+└─ Allow login after 15 minutes or OTP verification
+```
+
+---
+
+# API Endpoints
+
+## Signup
+
+```http
 POST /api/auth/signup
-├─ Body: { email, password, agreeToTerms }
-└─ Response: { sessionToken, refreshToken, userId }
+```
 
-POST /api/auth/signup/oauth
-├─ Body: { provider, oauthCode }
-└─ Response: { sessionToken, refreshToken, userId }
+Request
 
-POST /api/auth/login
-├─ Body: { email, password }
-└─ Response: { sessionToken, refreshToken, userId, user { id, email, firstName, role } }
+```json
+{
+  "email": "john@example.com",
+  "password": "Password123!",
+  "agreeToTerms": true
+}
+```
 
+Response
+
+```json
+{
+  "success": true,
+  "message": "Verification code sent."
+}
+```
+
+---
+
+## Verify Email
+
+```http
 POST /api/auth/verify-email
-├─ Body: { code }
-└─ Response: { success, message }
+```
 
+Request
+
+```json
+{
+  "email": "john@example.com",
+  "code": "483291"
+}
+```
+
+Response
+
+```json
+{
+  "accessToken": "...",
+  "refreshToken": "...",
+  "user": {}
+}
+```
+
+---
+
+## Resend Verification Code
+
+```http
 POST /api/auth/resend-verification
-├─ Body: { email }
-└─ Response: { success, message }
+```
 
-GET /api/auth/me
-├─ Headers: Authorization: Bearer {sessionToken}
-└─ Response: { user { id, email, firstName, lastName, role, createdAt } }
+Request
 
+```json
+{
+  "email": "john@example.com"
+}
+```
+
+---
+
+## Login
+
+```http
+POST /api/auth/login
+```
+
+Request
+
+```json
+{
+  "email": "john@example.com",
+  "password": "Password123!"
+}
+```
+
+Response
+
+```json
+{
+  "accessToken": "...",
+  "refreshToken": "...",
+  "user": {}
+}
+```
+
+---
+
+## Refresh Token
+
+```http
 POST /api/auth/refresh
-├─ Body: { refreshToken }
-└─ Response: { sessionToken, refreshToken }
+```
 
+---
+
+## Logout
+
+```http
 POST /api/auth/logout
-├─ Headers: Authorization: Bearer {sessionToken}
-├─ Body: { refreshToken }
-└─ Response: { success }
 ```
 
-### 0.3: Password Reset Flow
+---
 
-```
-User clicks "Forgot password?" on login page
+# 0.3 Forgot Password Flow
+
+```text
+User clicks "Forgot Password?"
     ↓
-Display: Password Reset Form
-├─ Email [required]
-├─ CTA: [Send Reset Link]
-└─ Link: "Back to login"
+Display
+──────────────────────
+Forgot Password
+
+Email
+
+[ Send Code ]
+
+Back to Login
+──────────────────────
     ↓
-User enters email:
-├─ Backend:
-│  ├─ SELECT * FROM users WHERE email=?
-│  ├─ If found: Generate reset token (1-hour expiry)
-│  │  └─ UPDATE users SET passwordResetToken=?, passwordResetTokenExpiry=NOW+1h
-│  │  └─ Send email with reset link
-│  └─ If not found: Still show "Check your email" (security)
-├─ Display: "Check your email for reset instructions"
-└─ Link: "Didn't receive? Resend" (rate limited)
+User enters email
     ↓
-User clicks reset link in email:
-├─ Display: New Password Form
-│  ├─ New Password [required, 8+ chars]
-│  ├─ Confirm Password [must match]
-│  └─ [Reset Password]
-├─ Backend:
-│  ├─ SELECT * FROM users WHERE passwordResetToken=? AND passwordResetTokenExpiry > NOW
-│  ├─ If found:
-│  │  ├─ Hash new password
-│  │  └─ UPDATE users SET passwordHash=?, passwordResetToken=NULL
-│  └─ If expired: Show "Link expired, request new one"
-├─ Display: "✓ Password reset successful!"
-└─ Redirect to login after 2s
+Backend
+├─ Find user by email
+├─ If exists
+│   ├─ Generate 6-digit reset OTP
+│   ├─ Expiry = NOW + 10 minutes
+│   ├─ Save OTP
+│   └─ Send email
+└─ If not exists
+    Show same success message
+    (Prevent email enumeration)
+    ↓
+Redirect to Verify Reset Code Page
 ```
 
-**API Endpoints:**
+---
+
+## Verify Reset Code Page
+
+```text
+Display
+─────────────────────────────
+Verify Reset Code
+
+We sent a code to
+
+john@example.com
+
+[ _ ] [ _ ] [ _ ] [ _ ] [ _ ] [ _ ]
+
+09:59
+
+Buttons
+├─ Verify
+└─ Resend Code
+─────────────────────────────
+    ↓
+User enters OTP
+    ↓
+Backend
+├─ Find user
+├─ Verify OTP
+├─ Check expiration
+└─ Compare codes
 ```
+
+### Valid OTP
+
+```text
+Redirect to Reset Password Page
+```
+
+### Invalid OTP
+
+```text
+Display
+
+"The verification code is incorrect."
+```
+
+### Expired OTP
+
+```text
+Display
+
+"The verification code has expired."
+
+Button:
+Resend Code
+```
+
+---
+
+## Reset Password Page
+
+```text
+Display
+──────────────────────
+Create New Password
+
+├─ New Password
+├─ Confirm Password
+
+[ Reset Password ]
+──────────────────────
+    ↓
+User submits
+    ↓
+Backend
+├─ Hash password
+├─ UPDATE users
+│   ├─ passwordHash
+│   ├─ resetCode=NULL
+│   └─ resetExpiry=NULL
+├─ Revoke all refresh tokens
+└─ Success
+    ↓
+Display
+
+✓ Password Reset Successful
+
+Redirect to Login Page
+```
+
+---
+
+# Password Reset APIs
+
+## Request Reset Code
+
+```http
 POST /api/auth/password-reset-request
-├─ Body: { email }
-└─ Response: { success, message }
+```
 
+Request
+
+```json
+{
+  "email": "john@example.com"
+}
+```
+
+---
+
+## Verify Reset Code
+
+```http
+POST /api/auth/password-reset/verify
+```
+
+Request
+
+```json
+{
+  "email": "john@example.com",
+  "code": "483291"
+}
+```
+
+---
+
+## Reset Password
+
+```http
 POST /api/auth/password-reset
-├─ Body: { token, newPassword }
-└─ Response: { success, message }
+```
+
+Request
+
+```json
+{
+  "email": "john@example.com",
+  "code": "483291",
+  "newPassword": "NewPassword123!"
+}
+```
+
+Response
+
+```json
+{
+  "success": true,
+  "message": "Password reset successfully."
+}
 ```
 
 ---
