@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Employer - Company Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar employer-theme">
+    <div class="sidebar-logo">JOBFITS EMPLOYER</div>
+    <div class="sidebar-home">
+      <a href="employer-dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Company</div>
+    <a href="employer-company.html" class="active">&#127970; Company Profile</a>
+    <div class="sidebar-section-label">Hiring</div>
+    <a href="employer-jobs.html">&#128203; Jobs</a>
+    <a href="employer-applications.html">&#128221; Applications</a>
+    <div class="sidebar-user">
+      <strong>TechCorp Inc &#9989;</strong>
+      employer@techcorp.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-title">Company Profile</div>
+    <div class="page-sub">Manage how your company appears to candidates.</div>
+
+    <div class="alert alert-success">
+      &#9989; <strong>Verified</strong> via email domain <strong>@techcorp.com</strong> on Jan 15, 2026.
+    </div>
+
+    <div class="card">
+      <form onsubmit="saveProfile(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" value="TechCorp Inc" readonly style="background:#f5f5f5;">
+            <p class="hint">Locked after verification. Contact support to change.</p>
+          </div>
+          <div class="form-group">
+            <label>Website</label>
+            <input type="text" value="https://techcorp.com">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Company Logo</label>
+          <div class="upload-zone" onclick="showToast('File picker would open here')">
+            <p>&#128247; Drag &amp; drop a logo, or click to browse</p>
+            <div class="note">PNG or JPG, max 2MB. Recommended 400&times;400px.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Company Description</label>
+          <textarea>Leading software company focused on AI-driven products. We build tools that help teams work smarter.</textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Industries</label>
+          <div class="check-group">
+            <label><input type="checkbox" checked> Technology</label>
+            <label><input type="checkbox" checked> Software</label>
+            <label><input type="checkbox"> Consulting</label>
+            <label><input type="checkbox"> Services</label>
+            <label><input type="checkbox"> Other</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Company Size</label>
+          <div class="check-group">
+            <label><input type="radio" name="size"> Startup (1&ndash;50)</label>
+            <label><input type="radio" name="size"> Small (51&ndash;200)</label>
+            <label><input type="radio" name="size" checked> Mid-Size (201&ndash;1000)</label>
+            <label><input type="radio" name="size"> Enterprise (1000+)</label>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <a href="employer-dashboard.html" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+  function saveProfile(e){e.preventDefault();showToast('Company profile saved.');}
+</script>
+</body>
+</html>

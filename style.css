@@ -893,3 +893,323 @@ textarea {
   font-size: 12px;
   color: #888;
 }
+
+/* ============================================================= */
+/* ===== ADMIN & EMPLOYER DASHBOARDS =========================== */
+/* ============================================================= */
+
+/* --- Themed sidebars --- */
+.sidebar.admin-theme {
+  background: #2c3e50;
+}
+.sidebar.admin-theme .sidebar-logo {
+  color: #f39c12;
+  border-bottom-color: #3d5266;
+}
+.sidebar.admin-theme a:hover {
+  background: #34495e;
+}
+.sidebar.admin-theme a.active {
+  background: #f39c12;
+  color: #fff;
+}
+.sidebar.admin-theme .sidebar-user {
+  border-top-color: #3d5266;
+}
+
+.sidebar.employer-theme {
+  background: #14532d;
+}
+.sidebar.employer-theme .sidebar-logo {
+  color: #4ade80;
+  border-bottom-color: #1f6b3f;
+}
+.sidebar.employer-theme a:hover {
+  background: #1c5e37;
+}
+.sidebar.employer-theme a.active {
+  background: #16a34a;
+  color: #fff;
+}
+.sidebar.employer-theme .sidebar-user {
+  border-top-color: #1f6b3f;
+}
+
+/* --- Stat variants + delta indicators --- */
+.stat-box.stat-success .num { color: #27ae60; }
+.stat-box.stat-warning .num { color: #d68910; }
+.stat-box.stat-danger  .num { color: #c0392b; }
+.stat-box.stat-neutral .num { color: #2c3e50; }
+
+.stat-box .delta {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+.delta-up   { color: #27ae60; }
+.delta-down { color: #c0392b; }
+.delta-flat { color: #888; }
+
+/* --- Health status dot --- */
+.health-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.dot-green  { background: #27ae60; }
+.dot-yellow { background: #f1c40f; }
+.dot-red    { background: #e74c3c; }
+
+.health-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.health-row:last-child { border-bottom: none; }
+.health-row .metric-name { font-weight: bold; font-size: 14px; }
+.health-row .metric-val  { font-size: 14px; color: #333; }
+
+/* --- Simple bar meter (for latency, load, etc.) --- */
+.meter {
+  background: #e6e6e6;
+  border-radius: 4px;
+  height: 8px;
+  width: 140px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.meter > span {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: #27ae60;
+}
+.meter.warn > span { background: #f1c40f; }
+.meter.crit > span { background: #e74c3c; }
+
+/* --- Period toggle (1d / 7d / 30d) --- */
+.period-toggle {
+  display: inline-flex;
+  gap: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 8px;
+}
+.period-toggle button {
+  border: none;
+  background: #fff;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  border-right: 1px solid #ddd;
+  color: #333;
+}
+.period-toggle button:last-child { border-right: none; }
+.period-toggle button.active {
+  background: #2a6dbf;
+  color: #fff;
+}
+
+/* --- Simple sparkline/trend chart bars --- */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 120px;
+  padding: 10px 0;
+}
+.bar-chart .bar {
+  flex: 1;
+  background: #2a6dbf;
+  border-radius: 3px 3px 0 0;
+  min-width: 8px;
+  position: relative;
+}
+.bar-chart .bar span {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  color: #999;
+}
+
+/* --- Kanban board --- */
+.kanban {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.kanban-col {
+  background: #eef1f4;
+  border-radius: 6px;
+  min-width: 240px;
+  width: 240px;
+  flex-shrink: 0;
+  padding: 10px;
+}
+.kanban-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.kanban-col h4 .count {
+  background: #d5dbe1;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.kanban-col.drop-hover {
+  outline: 2px dashed #2a6dbf;
+  outline-offset: -2px;
+}
+.kanban-card {
+  background: #fff;
+  border: 1px solid #d5dbe1;
+  border-left: 3px solid #2a6dbf;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: grab;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.kanban-card:active { cursor: grabbing; }
+.kanban-card.dragging { opacity: 0.4; }
+.kanban-card strong { font-size: 14px; display: block; }
+.kanban-card .kc-meta { font-size: 12px; color: #777; margin-top: 3px; }
+
+/* --- Modal --- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 22px;
+  width: min(460px, 100%);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.25);
+}
+.modal-box h3 { font-size: 17px; margin-bottom: 10px; }
+.modal-box p  { font-size: 14px; color: #444; line-height: 1.5; margin-bottom: 12px; }
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* --- Toast --- */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #2c3e50;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 200;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* --- Checkbox / radio group inline --- */
+.check-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 4px;
+}
+.check-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* --- Two column form layout --- */
+.form-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.form-row .form-group { flex: 1; min-width: 180px; }
+
+/* --- Toolbar / page action row --- */
+.page-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+/* --- Rich text editor mock toolbar --- */
+.rte-toolbar {
+  display: flex;
+  gap: 4px;
+  border: 1px solid #bbb;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  padding: 6px;
+  background: #f7f7f7;
+}
+.rte-toolbar button {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 3px;
+  width: 30px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.rte-toolbar + textarea {
+  border-radius: 0 0 3px 3px;
+  height: 160px;
+}
+
+/* --- View switch tabs --- */
+.view-tabs {
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.view-tabs button {
+  border: none;
+  background: #fff;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  border-right: 1px solid #ddd;
+}
+.view-tabs button:last-child { border-right: none; }
+.view-tabs button.active { background: #16a34a; color: #fff; }

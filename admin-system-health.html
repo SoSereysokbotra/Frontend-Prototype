@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Admin - System Health</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar admin-theme">
+    <div class="sidebar-logo">JOBFITS ADMIN</div>
+    <div class="sidebar-home">
+      <a href="admin-panel.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Management</div>
+    <a href="admin-users.html">&#128101; Users</a>
+    <div class="sidebar-section-label">Monitoring</div>
+    <a href="admin-system-health.html" class="active">&#128202; System Health</a>
+    <a href="admin-email.html">&#128231; Email Tracking</a>
+    <a href="admin-audit-logs.html">&#128220; Audit Logs</a>
+    <div class="sidebar-user">
+      <strong>Admin User</strong>
+      admin@jobfits.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-toolbar">
+      <div>
+        <div class="page-title">System Health</div>
+        <div class="page-sub">Overall Status: <span class="health-dot dot-green"></span><strong style="color:#1e8449;">HEALTHY</strong></div>
+      </div>
+      <div>
+        <span style="font-size:13px;color:#666;">Range:</span>
+        <span class="period-toggle">
+          <button class="active" onclick="setPeriod(this,'1h')">1h</button>
+          <button onclick="setPeriod(this,'24h')">24h</button>
+          <button onclick="setPeriod(this,'7d')">7d</button>
+        </span>
+      </div>
+    </div>
+
+    <!-- Core metrics -->
+    <div class="section-heading">Core Metrics</div>
+    <div class="card">
+      <div class="health-row">
+        <span class="metric-name"><span class="health-dot dot-green"></span>Uptime</span>
+        <span class="metric-val">99.8% <span class="note">(target 99.5%)</span></span>
+      </div>
+      <div class="health-row">
+        <span class="metric-name"><span class="health-dot dot-green"></span>API Latency (p99)</span>
+        <span class="metric-val"><span class="meter"><span style="width:29%"></span></span>145ms</span>
+      </div>
+      <div class="health-row">
+        <span class="metric-name"><span class="health-dot dot-green"></span>Database CPU</span>
+        <span class="metric-val"><span class="meter"><span style="width:32%"></span></span>32%</span>
+      </div>
+      <div class="health-row">
+        <span class="metric-name"><span class="health-dot dot-yellow"></span>Job Queue Depth</span>
+        <span class="metric-val"><span class="meter warn"><span style="width:47%"></span></span>234 pending</span>
+      </div>
+      <div class="health-row">
+        <span class="metric-name"><span class="health-dot dot-green"></span>Active Users (concurrent)</span>
+        <span class="metric-val">245</span>
+      </div>
+      <div class="health-row">
+        <span class="metric-name"><span class="health-dot dot-green"></span>Email Delivery Rate</span>
+        <span class="metric-val">99.4%</span>
+      </div>
+    </div>
+
+    <!-- Latency trend chart -->
+    <div class="section-heading">API Latency Trend</div>
+    <div class="card">
+      <div class="bar-chart">
+        <div class="bar" style="height:40%"><span>1h</span></div>
+        <div class="bar" style="height:55%"><span>2h</span></div>
+        <div class="bar" style="height:48%"><span>3h</span></div>
+        <div class="bar" style="height:62%"><span>4h</span></div>
+        <div class="bar" style="height:38%"><span>5h</span></div>
+        <div class="bar" style="height:44%"><span>6h</span></div>
+        <div class="bar" style="height:35%"><span>now</span></div>
+      </div>
+      <p class="note" style="margin-top:22px;">Average p99 latency over selected window. Green = within SLA (&lt;300ms).</p>
+    </div>
+
+    <!-- Alerts -->
+    <div class="section-heading">Alerts</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>Severity</th><th>Message</th><th>When</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="status status-interview">&#128993; WARNING</span></td>
+            <td>Job queue depth above 200 for 10 minutes</td>
+            <td>18 min ago</td>
+            <td><button class="btn btn-secondary btn-small" onclick="ack(this)">Acknowledge</button></td>
+          </tr>
+          <tr>
+            <td><span class="status status-offer">&#128994; INFO</span></td>
+            <td>Nightly recommendation batch completed successfully</td>
+            <td>2h 14m ago</td>
+            <td><button class="btn btn-secondary btn-small" onclick="ack(this)">Acknowledge</button></td>
+          </tr>
+          <tr>
+            <td><span class="status status-offer">&#128994; INFO</span></td>
+            <td>Database backup completed</td>
+            <td>2h ago</td>
+            <td><button class="btn btn-secondary btn-small" onclick="ack(this)">Acknowledge</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+  function setPeriod(btn,p){
+    document.querySelectorAll('.period-toggle button').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    showToast('Showing metrics for: '+p);
+  }
+  function ack(btn){
+    var row=btn.closest('tr'); row.style.opacity='0.5';
+    btn.textContent='Acknowledged'; btn.disabled=true;
+    showToast('Alert acknowledged.');
+  }
+</script>
+</body>
+</html>

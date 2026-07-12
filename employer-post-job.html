@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Employer - Create Job</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar employer-theme">
+    <div class="sidebar-logo">JOBFITS EMPLOYER</div>
+    <div class="sidebar-home">
+      <a href="employer-dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Company</div>
+    <a href="employer-company.html">&#127970; Company Profile</a>
+    <div class="sidebar-section-label">Hiring</div>
+    <a href="employer-jobs.html" class="active">&#128203; Jobs</a>
+    <a href="employer-applications.html">&#128221; Applications</a>
+    <div class="sidebar-user">
+      <strong>TechCorp Inc &#9989;</strong>
+      employer@techcorp.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="breadcrumb"><a href="employer-jobs.html">&larr; Back to Jobs</a></div>
+    <div class="page-title">Create New Job</div>
+    <div class="page-sub">Status: <span class="status status-saved">Draft</span> &mdash; not visible until published.</div>
+
+    <div class="card">
+      <form onsubmit="publish(event)">
+        <div class="form-group">
+          <label>Job Title</label>
+          <input type="text" placeholder="e.g. Senior Software Engineer" value="Senior Software Engineer">
+        </div>
+
+        <div class="form-group">
+          <label>Job Description</label>
+          <div class="rte-toolbar">
+            <button type="button" title="Bold"><strong>B</strong></button>
+            <button type="button" title="Italic"><em>I</em></button>
+            <button type="button" title="Bulleted list">&#8226;</button>
+            <button type="button" title="Numbered list">1.</button>
+            <button type="button" title="Link">&#128279;</button>
+          </div>
+          <textarea placeholder="Describe the role, team, and mission...">We're looking for a talented engineer to join our platform team and help build the next generation of AI-driven products.</textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Requirements</label>
+          <textarea placeholder="List key requirements...">5+ years of software engineering experience. Strong Python skills. Experience with distributed systems.</textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Salary Min</label>
+            <input type="text" value="$150,000">
+          </div>
+          <div class="form-group">
+            <label>Salary Max</label>
+            <input type="text" value="$190,000">
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" value="San Francisco, CA">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Employment Type</label>
+          <div class="check-group">
+            <label><input type="radio" name="emp" checked> Full-time</label>
+            <label><input type="radio" name="emp"> Part-time</label>
+            <label><input type="radio" name="emp"> Contract</label>
+            <label><input type="radio" name="emp"> Internship</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Remote Type</label>
+          <div class="check-group">
+            <label><input type="radio" name="remote"> On-site</label>
+            <label><input type="radio" name="remote" checked> Hybrid</label>
+            <label><input type="radio" name="remote"> Remote</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Experience Level</label>
+          <div class="check-group">
+            <label><input type="radio" name="exp"> Entry</label>
+            <label><input type="radio" name="exp"> Mid</label>
+            <label><input type="radio" name="exp" checked> Senior</label>
+            <label><input type="radio" name="exp"> Lead</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Required Skills</label>
+          <div id="skillTags" style="margin-bottom:8px;">
+            <span class="tag">Python <a href="#" onclick="removeSkill(event,this)" style="color:#922b21;text-decoration:none;">&times;</a></span>
+            <span class="tag">SQL <a href="#" onclick="removeSkill(event,this)" style="color:#922b21;text-decoration:none;">&times;</a></span>
+            <span class="tag">AWS <a href="#" onclick="removeSkill(event,this)" style="color:#922b21;text-decoration:none;">&times;</a></span>
+          </div>
+          <div class="search-bar" style="margin-bottom:0;">
+            <input type="text" id="skillInput" placeholder="Add a skill and press Enter" onkeydown="if(event.key==='Enter'){event.preventDefault();addSkill();}">
+            <button type="button" onclick="addSkill()">+ Add</button>
+          </div>
+        </div>
+
+        <hr>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button type="button" class="btn btn-secondary" onclick="showToast('Preview would open in a new tab')">Preview</button>
+          <button type="button" class="btn btn-secondary" onclick="showToast('Saved as draft')">Save Draft</button>
+          <button type="submit" class="btn btn-primary">Publish Job</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+  function addSkill(){
+    var inp=document.getElementById('skillInput');var v=inp.value.trim();if(!v)return;
+    var span=document.createElement('span');span.className='tag';
+    span.innerHTML=v+' <a href="#" onclick="removeSkill(event,this)" style="color:#922b21;text-decoration:none;">&times;</a>';
+    document.getElementById('skillTags').appendChild(span);inp.value='';
+  }
+  function removeSkill(e,el){e.preventDefault();el.parentNode.remove();}
+  function publish(e){e.preventDefault();if(confirm('Publish job and make visible to candidates?')){showToast('Job published! Now visible in candidate search.');}}
+</script>
+</body>
+</html>

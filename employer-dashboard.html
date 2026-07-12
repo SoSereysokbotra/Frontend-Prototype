@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Employer - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar employer-theme">
+    <div class="sidebar-logo">JOBFITS EMPLOYER</div>
+    <div class="sidebar-home">
+      <a href="employer-dashboard.html" class="active">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Company</div>
+    <a href="employer-company.html">&#127970; Company Profile</a>
+    <div class="sidebar-section-label">Hiring</div>
+    <a href="employer-jobs.html">&#128203; Jobs</a>
+    <a href="employer-applications.html">&#128221; Applications</a>
+    <div class="sidebar-user">
+      <strong>TechCorp Inc &#9989;</strong>
+      employer@techcorp.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-title">Welcome back, TechCorp Inc</div>
+    <div class="page-sub">Your hiring overview at a glance.</div>
+
+    <div class="alert alert-success">
+      &#9989; Company verified on Jan 15, 2026. You can post jobs and review candidates.
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-box stat-neutral"><div class="num">3</div><div class="label">Active Jobs</div></div>
+      <div class="stat-box"><div class="num">68</div><div class="label">Total Applications</div></div>
+      <div class="stat-box stat-warning"><div class="num">9</div><div class="label">New This Week</div></div>
+      <div class="stat-box stat-success"><div class="num">82%</div><div class="label">Avg Match Score</div></div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="section-heading">Quick Actions</div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
+      <a href="employer-post-job.html" class="btn btn-primary">&#10133; Post New Job</a>
+      <a href="employer-jobs.html" class="btn btn-secondary">&#128203; Manage Jobs</a>
+      <a href="employer-applications.html" class="btn btn-secondary">&#128221; Review Applications</a>
+      <a href="employer-company.html" class="btn btn-secondary">&#127970; Edit Company Profile</a>
+    </div>
+
+    <!-- Active jobs preview -->
+    <div class="section-heading">Your Active Jobs</div>
+    <div class="card">
+      <table>
+        <thead><tr><th>Title</th><th>Status</th><th>Posted</th><th>Applications</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Senior Software Engineer</td>
+            <td><span class="status status-offer">Published</span></td>
+            <td>Jan 15</td><td>23</td>
+            <td><a href="employer-job-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr>
+            <td>Data Scientist</td>
+            <td><span class="status status-offer">Published</span></td>
+            <td>Dec 20</td><td>45</td>
+            <td><a href="employer-job-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr>
+            <td>Product Manager</td>
+            <td><span class="status status-saved">Draft</span></td>
+            <td>&mdash;</td><td>0</td>
+            <td><a href="employer-post-job.html" class="btn btn-secondary btn-small">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recent applicants -->
+    <div class="section-heading">Recent Applicants</div>
+    <div class="card">
+      <table>
+        <thead><tr><th>Candidate</th><th>Job</th><th>Match</th><th>Applied</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>John Smith</td><td>Senior Software Engineer</td><td><span class="match-score match-high">92%</span></td><td>1h ago</td>
+            <td><a href="employer-applications.html" class="btn btn-secondary btn-small">View</a></td></tr>
+          <tr><td>Jane Doe</td><td>Data Scientist</td><td><span class="match-score match-high">87%</span></td><td>3h ago</td>
+            <td><a href="employer-applications.html" class="btn btn-secondary btn-small">View</a></td></tr>
+          <tr><td>Bob Johnson</td><td>Senior Software Engineer</td><td><span class="match-score match-mid">78%</span></td><td>Yesterday</td>
+            <td><a href="employer-applications.html" class="btn btn-secondary btn-small">View</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

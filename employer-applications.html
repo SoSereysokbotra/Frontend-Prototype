@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Employer - Applications</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar employer-theme">
+    <div class="sidebar-logo">JOBFITS EMPLOYER</div>
+    <div class="sidebar-home">
+      <a href="employer-dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Company</div>
+    <a href="employer-company.html">&#127970; Company Profile</a>
+    <div class="sidebar-section-label">Hiring</div>
+    <a href="employer-jobs.html">&#128203; Jobs</a>
+    <a href="employer-applications.html" class="active">&#128221; Applications</a>
+    <div class="sidebar-user">
+      <strong>TechCorp Inc &#9989;</strong>
+      employer@techcorp.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-toolbar">
+      <div>
+        <div class="page-title">Applications</div>
+        <div class="page-sub">Drag candidate cards between stages to update their status.</div>
+      </div>
+      <div class="view-tabs">
+        <button class="active">Kanban</button>
+        <button onclick="showToast('List view coming soon')">List</button>
+      </div>
+    </div>
+
+    <div class="filter-row">
+      <label>Job:</label>
+      <select onchange="showToast('Filtered by job')">
+        <option>All Jobs</option>
+        <option>Senior Software Engineer</option>
+        <option>Data Scientist</option>
+      </select>
+    </div>
+
+    <!-- Kanban board -->
+    <div class="kanban">
+      <div class="kanban-col" data-stage="Applied" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="leave(event)">
+        <h4>Applied <span class="count">4</span></h4>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c1">
+          <strong>John Smith</strong>
+          <div class="kc-meta"><span class="match-score match-high">92%</span> &middot; 1h ago</div>
+        </div>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c2">
+          <strong>Alice Cooper</strong>
+          <div class="kc-meta"><span class="match-score match-mid">78%</span> &middot; 3h ago</div>
+        </div>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c3">
+          <strong>Grace Hall</strong>
+          <div class="kc-meta"><span class="match-score match-high">85%</span> &middot; 5h ago</div>
+        </div>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c4">
+          <strong>Ivan Petrov</strong>
+          <div class="kc-meta"><span class="match-score match-mid">71%</span> &middot; Yesterday</div>
+        </div>
+      </div>
+
+      <div class="kanban-col" data-stage="Interview" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="leave(event)">
+        <h4>Interview <span class="count">2</span></h4>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c5">
+          <strong>Jane Doe</strong>
+          <div class="kc-meta"><span class="match-score match-high">87%</span> &middot; Applied 5d ago</div>
+        </div>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c6">
+          <strong>Charlie Kim</strong>
+          <div class="kc-meta"><span class="match-score match-high">80%</span> &middot; Applied 3d ago</div>
+        </div>
+      </div>
+
+      <div class="kanban-col" data-stage="Offer" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="leave(event)">
+        <h4>Offer <span class="count">1</span></h4>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c7">
+          <strong>Bob Johnson</strong>
+          <div class="kc-meta"><span class="match-score match-high">85%</span> &middot; Applied 2d ago</div>
+        </div>
+      </div>
+
+      <div class="kanban-col" data-stage="Hired" ondragover="allowDrop(event)" ondrop="drop(event)" ondragleave="leave(event)">
+        <h4>Hired <span class="count">1</span></h4>
+        <div class="kanban-card" draggable="true" ondragstart="drag(event)" id="c8">
+          <strong>David Park</strong>
+          <div class="kc-meta"><span class="match-score match-high">88%</span> &middot; Hired</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:14px;">Pipeline: Applied &rarr; Interview &rarr; Offer &rarr; Hired. Add notes by clicking a candidate (Phase 2).</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+
+  var dragged=null;
+  function drag(e){dragged=e.target;e.target.classList.add('dragging');e.dataTransfer.effectAllowed='move';}
+  function allowDrop(e){e.preventDefault();e.currentTarget.classList.add('drop-hover');}
+  function leave(e){e.currentTarget.classList.remove('drop-hover');}
+  function drop(e){
+    e.preventDefault();
+    var col=e.currentTarget;
+    col.classList.remove('drop-hover');
+    if(dragged){
+      col.appendChild(dragged);
+      dragged.classList.remove('dragging');
+      var name=dragged.querySelector('strong').textContent;
+      var stage=col.getAttribute('data-stage');
+      showToast(name+' moved to '+stage);
+      updateCounts();
+      dragged=null;
+    }
+  }
+  function updateCounts(){
+    document.querySelectorAll('.kanban-col').forEach(function(col){
+      var n=col.querySelectorAll('.kanban-card').length;
+      col.querySelector('.count').textContent=n;
+    });
+  }
+  document.addEventListener('dragend',function(){document.querySelectorAll('.kanban-card').forEach(function(c){c.classList.remove('dragging');});});
+</script>
+</body>
+</html>

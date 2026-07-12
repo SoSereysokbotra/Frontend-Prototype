@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Employer - Job Detail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar employer-theme">
+    <div class="sidebar-logo">JOBFITS EMPLOYER</div>
+    <div class="sidebar-home">
+      <a href="employer-dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Company</div>
+    <a href="employer-company.html">&#127970; Company Profile</a>
+    <div class="sidebar-section-label">Hiring</div>
+    <a href="employer-jobs.html" class="active">&#128203; Jobs</a>
+    <a href="employer-applications.html">&#128221; Applications</a>
+    <div class="sidebar-user">
+      <strong>TechCorp Inc &#9989;</strong>
+      employer@techcorp.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="breadcrumb"><a href="employer-jobs.html">&larr; Back to Jobs</a></div>
+    <div class="page-toolbar">
+      <div>
+        <div class="page-title">Senior Software Engineer</div>
+        <div class="page-sub"><span class="status status-offer">Published</span> &nbsp;|&nbsp; Posted Jan 15, 2026</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a href="employer-post-job.html" class="btn btn-secondary btn-small">Edit</a>
+        <button class="btn btn-secondary btn-small" onclick="showToast('Job closed')">Close</button>
+        <button class="btn btn-secondary btn-small" onclick="showToast('Job duplicated as draft')">Duplicate</button>
+      </div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="section-heading">Analytics</div>
+    <div class="stats-row">
+      <div class="stat-box"><div class="num">456</div><div class="label">Views</div><div class="delta delta-up">&#9650; +12 today</div></div>
+      <div class="stat-box"><div class="num">23</div><div class="label">Applications</div><div class="delta delta-up">&#9650; +2 today</div></div>
+      <div class="stat-box stat-warning"><div class="num">5%</div><div class="label">Apply Rate</div></div>
+      <div class="stat-box stat-success"><div class="num">82%</div><div class="label">Avg Match Score</div></div>
+    </div>
+
+    <!-- Job info -->
+    <div class="section-heading">Job Information</div>
+    <div class="card">
+      <div class="health-row"><span class="metric-name">Location</span><span class="metric-val">San Francisco, CA</span></div>
+      <div class="health-row"><span class="metric-name">Salary</span><span class="metric-val">$150K &ndash; $190K</span></div>
+      <div class="health-row"><span class="metric-name">Type</span><span class="metric-val">Full-time, Hybrid</span></div>
+      <div class="health-row"><span class="metric-name">Experience</span><span class="metric-val">Senior</span></div>
+      <div class="health-row"><span class="metric-name">Skills</span><span class="metric-val">
+        <span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">AWS</span>
+      </span></div>
+    </div>
+
+    <!-- Recent applicants -->
+    <div class="section-heading">Recent Applicants</div>
+    <div class="card">
+      <table>
+        <thead><tr><th>Candidate</th><th>Match</th><th>Applied</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>John Smith</td><td><span class="match-score match-high">92%</span></td><td>1h ago</td>
+            <td><a href="employer-applications.html" class="btn btn-secondary btn-small">View</a></td></tr>
+          <tr><td>Jane Doe</td><td><span class="match-score match-high">87%</span></td><td>3h ago</td>
+            <td><a href="employer-applications.html" class="btn btn-secondary btn-small">View</a></td></tr>
+          <tr><td>Bob Johnson</td><td><span class="match-score match-mid">78%</span></td><td>Yesterday</td>
+            <td><a href="employer-applications.html" class="btn btn-secondary btn-small">View</a></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;">
+        <a href="employer-applications.html" class="btn btn-primary btn-small">View all 23 applicants &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+</script>
+</body>
+</html>

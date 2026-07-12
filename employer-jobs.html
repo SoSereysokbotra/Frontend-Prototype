@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Employer - Jobs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar employer-theme">
+    <div class="sidebar-logo">JOBFITS EMPLOYER</div>
+    <div class="sidebar-home">
+      <a href="employer-dashboard.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Company</div>
+    <a href="employer-company.html">&#127970; Company Profile</a>
+    <div class="sidebar-section-label">Hiring</div>
+    <a href="employer-jobs.html" class="active">&#128203; Jobs</a>
+    <a href="employer-applications.html">&#128221; Applications</a>
+    <div class="sidebar-user">
+      <strong>TechCorp Inc &#9989;</strong>
+      employer@techcorp.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-toolbar">
+      <div>
+        <div class="page-title">My Jobs</div>
+        <div class="page-sub">Showing 5 of 5 jobs</div>
+      </div>
+      <a href="employer-post-job.html" class="btn btn-primary">&#10133; Create New Job</a>
+    </div>
+
+    <div class="filter-row">
+      <label>Status:</label>
+      <select id="statusFilter" onchange="filterJobs()">
+        <option value="">All</option>
+        <option value="Published">Published</option>
+        <option value="Draft">Draft</option>
+        <option value="Closed">Closed</option>
+      </select>
+    </div>
+
+    <div class="card" style="padding:0;">
+      <table id="jobTable">
+        <thead>
+          <tr><th>Title</th><th>Status</th><th>Posted</th><th>Views</th><th>Apps</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr data-status="Published">
+            <td><a href="employer-job-detail.html" style="color:#16a34a;text-decoration:none;font-weight:bold;">Senior Software Engineer</a></td>
+            <td><span class="status status-offer">Published</span></td>
+            <td>Jan 15</td><td>456</td><td>23</td>
+            <td>
+              <a href="employer-job-detail.html" class="btn btn-secondary btn-small">View</a>
+              <a href="employer-post-job.html" class="btn btn-secondary btn-small">Edit</a>
+              <button class="btn btn-secondary btn-small" onclick="closeJob(this)">Close</button>
+            </td>
+          </tr>
+          <tr data-status="Draft">
+            <td>Product Manager</td>
+            <td><span class="status status-saved">Draft</span></td>
+            <td>&mdash;</td><td>0</td><td>0</td>
+            <td>
+              <a href="employer-post-job.html" class="btn btn-secondary btn-small">Edit</a>
+              <button class="btn btn-primary btn-small" onclick="publishJob(this)">Publish</button>
+              <button class="btn btn-danger btn-small" onclick="deleteJob(this)">Delete</button>
+            </td>
+          </tr>
+          <tr data-status="Published">
+            <td><a href="employer-job-detail.html" style="color:#16a34a;text-decoration:none;font-weight:bold;">Data Scientist</a></td>
+            <td><span class="status status-offer">Published</span></td>
+            <td>Dec 20</td><td>1,102</td><td>45</td>
+            <td>
+              <a href="employer-job-detail.html" class="btn btn-secondary btn-small">View</a>
+              <a href="employer-post-job.html" class="btn btn-secondary btn-small">Edit</a>
+              <button class="btn btn-secondary btn-small" onclick="closeJob(this)">Close</button>
+            </td>
+          </tr>
+          <tr data-status="Published">
+            <td><a href="employer-job-detail.html" style="color:#16a34a;text-decoration:none;font-weight:bold;">UX Designer</a></td>
+            <td><span class="status status-offer">Published</span></td>
+            <td>Feb 2</td><td>289</td><td>11</td>
+            <td>
+              <a href="employer-job-detail.html" class="btn btn-secondary btn-small">View</a>
+              <a href="employer-post-job.html" class="btn btn-secondary btn-small">Edit</a>
+              <button class="btn btn-secondary btn-small" onclick="closeJob(this)">Close</button>
+            </td>
+          </tr>
+          <tr data-status="Closed">
+            <td>Marketing Lead</td>
+            <td><span class="status status-rejected">Closed</span></td>
+            <td>Nov 10</td><td>620</td><td>34</td>
+            <td>
+              <a href="employer-job-detail.html" class="btn btn-secondary btn-small">View</a>
+              <button class="btn btn-secondary btn-small" onclick="showToast('Job archived')">Archive</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+  function filterJobs(){var f=document.getElementById('statusFilter').value;document.querySelectorAll('#jobTable tbody tr').forEach(function(r){r.style.display=(!f||r.getAttribute('data-status')===f)?'':'none';});}
+  function closeJob(btn){if(confirm('Stop accepting applications for this job?')){btn.closest('tr').querySelector('.status').outerHTML='<span class="status status-rejected">Closed</span>';showToast('Job closed. No new applications accepted.');}}
+  function publishJob(btn){if(confirm('Publish job and make visible to candidates?')){btn.closest('tr').querySelector('.status').outerHTML='<span class="status status-offer">Published</span>';showToast('Job published.');}}
+  function deleteJob(btn){if(confirm('Delete this draft?')){btn.closest('tr').remove();showToast('Draft deleted.');}}
+</script>
+</body>
+</html>

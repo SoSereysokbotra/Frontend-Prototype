@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Admin - Users</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar admin-theme">
+    <div class="sidebar-logo">JOBFITS ADMIN</div>
+    <div class="sidebar-home">
+      <a href="admin-panel.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Management</div>
+    <a href="admin-users.html" class="active">&#128101; Users</a>
+    <div class="sidebar-section-label">Monitoring</div>
+    <a href="admin-system-health.html">&#128202; System Health</a>
+    <a href="admin-email.html">&#128231; Email Tracking</a>
+    <a href="admin-audit-logs.html">&#128220; Audit Logs</a>
+    <div class="sidebar-user">
+      <strong>Admin User</strong>
+      admin@jobfits.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-title">User Management</div>
+    <div class="page-sub">Search and manage candidate accounts.</div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <input type="text" id="userSearch" placeholder="Search by name or email..." onkeyup="filterUsers()">
+      <button onclick="filterUsers()">Search</button>
+    </div>
+
+    <div class="filter-row">
+      <label>Filter:</label>
+      <select id="statusFilter" onchange="filterUsers()">
+        <option value="">All statuses</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+        <option value="Locked">Locked</option>
+      </select>
+      <span class="note" id="resultCount" style="margin-left:auto;">Showing 6 of 12,450 users</span>
+    </div>
+
+    <!-- User table -->
+    <div class="card" style="padding:0;">
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Name</th><th>Email</th><th>Status</th><th>Applications</th><th>Last Login</th><th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-status="Active">
+            <td>John Smith</td><td>john@example.com</td>
+            <td><span class="status status-offer">Active</span></td><td>12</td><td>2h ago</td>
+            <td><a href="admin-user-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr data-status="Active">
+            <td>Jane Doe</td><td>jane@example.com</td>
+            <td><span class="status status-offer">Active</span></td><td>8</td><td>5m ago</td>
+            <td><a href="admin-user-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr data-status="Active">
+            <td>Bob Johnson</td><td>bob@example.com</td>
+            <td><span class="status status-offer">Active</span></td><td>3</td><td>Yesterday</td>
+            <td><a href="admin-user-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr data-status="Locked">
+            <td>Alice Cooper</td><td>alice@example.com</td>
+            <td><span class="status status-rejected">Locked</span></td><td>21</td><td>3d ago</td>
+            <td><a href="admin-user-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr data-status="Inactive">
+            <td>Charlie Kim</td><td>charlie@example.com</td>
+            <td><span class="status status-saved">Inactive</span></td><td>0</td><td>2 months ago</td>
+            <td><a href="admin-user-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+          <tr data-status="Active">
+            <td>Dana Lee</td><td>dana@example.com</td>
+            <td><span class="status status-offer">Active</span></td><td>15</td><td>1h ago</td>
+            <td><a href="admin-user-detail.html" class="btn btn-secondary btn-small">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <span>&laquo; Previous</span>
+      <a href="#" class="current">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <span>&hellip;</span>
+      <a href="#">Next &raquo;</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function filterUsers(){
+    var q=document.getElementById('userSearch').value.toLowerCase();
+    var status=document.getElementById('statusFilter').value;
+    var rows=document.querySelectorAll('#userTable tbody tr');
+    var shown=0;
+    rows.forEach(function(r){
+      var text=r.textContent.toLowerCase();
+      var matchQ=text.indexOf(q)>-1;
+      var matchS=!status || r.getAttribute('data-status')===status;
+      var show=matchQ&&matchS;
+      r.style.display=show?'':'none';
+      if(show)shown++;
+    });
+    document.getElementById('resultCount').textContent='Showing '+shown+' of 12,450 users';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Admin - Audit Logs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar admin-theme">
+    <div class="sidebar-logo">JOBFITS ADMIN</div>
+    <div class="sidebar-home">
+      <a href="admin-panel.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Management</div>
+    <a href="admin-users.html">&#128101; Users</a>
+    <div class="sidebar-section-label">Monitoring</div>
+    <a href="admin-system-health.html">&#128202; System Health</a>
+    <a href="admin-email.html">&#128231; Email Tracking</a>
+    <a href="admin-audit-logs.html" class="active">&#128220; Audit Logs</a>
+    <div class="sidebar-user">
+      <strong>Admin User</strong>
+      admin@jobfits.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="page-title">Audit Logs</div>
+    <div class="page-sub">Record of admin actions across the platform.</div>
+
+    <div class="filter-row">
+      <label>Action:</label>
+      <select id="actionFilter" onchange="filterLogs()">
+        <option value="">All actions</option>
+        <option value="reset_password">reset_password</option>
+        <option value="unlock_user">unlock_user</option>
+        <option value="delete_user">delete_user</option>
+        <option value="suppress_email">suppress_email</option>
+      </select>
+      <span class="note" style="margin-left:auto;" id="logCount">4 entries</span>
+    </div>
+
+    <div class="card" style="padding:0;">
+      <table id="logTable">
+        <thead>
+          <tr><th>Admin</th><th>Action</th><th>Resource</th><th>Timestamp</th></tr>
+        </thead>
+        <tbody>
+          <tr data-action="delete_user">
+            <td>admin@jobfits.com</td>
+            <td><span class="status status-rejected">delete_user</span></td>
+            <td>user #10245 (john@example.com)</td>
+            <td>Jul 12, 2026 &middot; 10:52 AM</td>
+          </tr>
+          <tr data-action="reset_password">
+            <td>admin@jobfits.com</td>
+            <td><span class="status status-applied">reset_password</span></td>
+            <td>user #10188 (alice@example.com)</td>
+            <td>Jul 12, 2026 &middot; 09:30 AM</td>
+          </tr>
+          <tr data-action="suppress_email">
+            <td>admin@jobfits.com</td>
+            <td><span class="status status-interview">suppress_email</span></td>
+            <td>john@oldjob.com</td>
+            <td>Jul 11, 2026 &middot; 04:15 PM</td>
+          </tr>
+          <tr data-action="unlock_user">
+            <td>admin@jobfits.com</td>
+            <td><span class="status status-offer">unlock_user</span></td>
+            <td>user #10102 (bob@example.com)</td>
+            <td>Jul 11, 2026 &middot; 02:01 PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note" style="margin-top:12px;">Basic logging (MVP): admin ID, action type, resource, timestamp. Old/new values and IP tracking are Phase 2+.</p>
+  </div>
+</div>
+
+<script>
+  function filterLogs(){
+    var f=document.getElementById('actionFilter').value;
+    var rows=document.querySelectorAll('#logTable tbody tr');var shown=0;
+    rows.forEach(function(r){var show=!f||r.getAttribute('data-action')===f;r.style.display=show?'':'none';if(show)shown++;});
+    document.getElementById('logCount').textContent=shown+' entries';
+  }
+</script>
+</body>
+</html>

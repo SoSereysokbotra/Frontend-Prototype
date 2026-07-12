@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFits Admin - User Detail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <nav class="sidebar admin-theme">
+    <div class="sidebar-logo">JOBFITS ADMIN</div>
+    <div class="sidebar-home">
+      <a href="admin-panel.html">&#127968; Dashboard</a>
+    </div>
+    <div class="sidebar-section-label">Management</div>
+    <a href="admin-users.html" class="active">&#128101; Users</a>
+    <div class="sidebar-section-label">Monitoring</div>
+    <a href="admin-system-health.html">&#128202; System Health</a>
+    <a href="admin-email.html">&#128231; Email Tracking</a>
+    <a href="admin-audit-logs.html">&#128220; Audit Logs</a>
+    <div class="sidebar-user">
+      <strong>Admin User</strong>
+      admin@jobfits.com<br>
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="breadcrumb"><a href="admin-users.html">&larr; Back to Users</a></div>
+    <div class="page-title">John Smith</div>
+    <div class="page-sub">john@example.com &nbsp;|&nbsp; User ID #10245</div>
+
+    <!-- Account info -->
+    <div class="section-heading">Account Information</div>
+    <div class="card">
+      <div class="health-row"><span class="metric-name">Name</span><span class="metric-val">John Smith</span></div>
+      <div class="health-row"><span class="metric-name">Email</span><span class="metric-val">john@example.com</span></div>
+      <div class="health-row"><span class="metric-name">Status</span><span class="metric-val"><span class="status status-offer">Active</span></span></div>
+      <div class="health-row"><span class="metric-name">Email Verified</span><span class="metric-val">&#9989; Yes</span></div>
+      <div class="health-row"><span class="metric-name">Signup Date</span><span class="metric-val">Jan 15, 2026</span></div>
+      <div class="health-row"><span class="metric-name">Last Login</span><span class="metric-val">2 hours ago</span></div>
+    </div>
+
+    <!-- Profile info -->
+    <div class="section-heading">Profile Information</div>
+    <div class="card">
+      <div class="health-row"><span class="metric-name">Location</span><span class="metric-val">San Francisco, CA</span></div>
+      <div class="health-row"><span class="metric-name">Salary Expectation</span><span class="metric-val">$100K &ndash; $150K</span></div>
+      <div class="health-row"><span class="metric-name">Profile Completeness</span><span class="metric-val">85%</span></div>
+      <div class="health-row"><span class="metric-name">Applications Submitted</span><span class="metric-val">12</span></div>
+    </div>
+
+    <!-- Resumes -->
+    <div class="section-heading">Resumes</div>
+    <div class="card">
+      <table>
+        <thead><tr><th>File</th><th>Uploaded</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Resume_v1.pdf</td><td>Jan 15, 2026</td><td><span class="status status-saved">Archived</span></td>
+            <td><button class="btn btn-secondary btn-small" onclick="showToast('Downloading Resume_v1.pdf')">Download</button></td></tr>
+          <tr><td>Resume_v2.pdf</td><td>Feb 1, 2026</td><td><span class="status status-offer">Current</span></td>
+            <td><button class="btn btn-secondary btn-small" onclick="showToast('Downloading Resume_v2.pdf')">Download</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Actions -->
+    <div class="section-heading">Admin Actions</div>
+    <div class="card">
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="showToast('Password reset email sent to john@example.com')">Reset Password</button>
+        <button class="btn btn-secondary" onclick="showToast('Account unlocked. User can now log in.')">Unlock Account</button>
+        <button class="btn btn-danger" onclick="openModal()">Delete Account (GDPR)</button>
+      </div>
+      <p class="note" style="margin-top:10px;">All actions are recorded in the <a href="admin-audit-logs.html" style="color:#2a6dbf;">audit log</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Delete modal -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="modal-box">
+    <h3>&#9888;&#65039; Delete Account &mdash; cannot be undone</h3>
+    <p>This will soft-delete the account, anonymize personal data, archive all applications &amp; resumes, and send a confirmation email to the user.</p>
+    <div class="form-group">
+      <label>Type <strong>DELETE</strong> to confirm:</label>
+      <input type="text" id="confirmInput" oninput="checkConfirm()" placeholder="DELETE">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-danger" id="confirmDelete" disabled onclick="doDelete()">Confirm Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+  function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2500);}
+  function openModal(){document.getElementById('deleteModal').classList.add('open');}
+  function closeModal(){document.getElementById('deleteModal').classList.remove('open');document.getElementById('confirmInput').value='';checkConfirm();}
+  function checkConfirm(){document.getElementById('confirmDelete').disabled=document.getElementById('confirmInput').value!=='DELETE';}
+  function doDelete(){closeModal();showToast('Account deleted successfully.');}
+</script>
+</body>
+</html>
